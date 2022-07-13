@@ -256,6 +256,22 @@
 #             cheap="Paper clips")
 
 
+# -----
+# Global variables = take precedence over other variables of same name
+# -----
+
+letters = "goodbye"
+
+
+def greet(name):
+    for letters in name:
+        print(letters)
+
+
+greet("Nick")
+print(letters)
+
+
 # -------
 # FizzBuzz Project (If + return statements)
 # -------
