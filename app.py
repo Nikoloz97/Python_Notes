@@ -226,11 +226,34 @@
 # **Args (variable arguments, but now also creates dictionary)
 # ------
 
-def userInfo(**Info):
-    print(Info["firstName"])
+# def userInfo(**Info):
+#     print(Info["age"])
 
 
-userInfo(accountID=15423, firstName="Nick", lastName="Gotsy", age=23)
+# userInfo(accountID=15423, firstName="Nick", lastName="Gotsy", age=23)
+
+
+# --------
+
+
+# def GroceryList(**WholeList):
+#     print(WholeList)
+
+
+# GroceryList(Expensive="Computer",
+#             notExpensive="basketball",
+#             cheap="Paper clips")
+
+
+# ---------
+
+
+# def GroceryList(**WholeList):
+#     print(WholeList["Expensive"])
+
+# GroceryList(Expensive="Computer",
+#             notExpensive="basketball",
+#             cheap="Paper clips")
 
 
 # -------
