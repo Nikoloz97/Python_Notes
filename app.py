@@ -257,24 +257,38 @@
 
 
 # -----
-# Global variables = take precedence over other variables of same name
+# Global variables = take precedence over other variables of same name (even if local)
 # -----
 
-letters = "goodbye"
+# letters = "goodbye"
 
 
-def greet(name):
-    for letters in name:
-        print(letters)
+# def greet(name):
+#     for letters in name:
+#         print(letters)
 
 
-greet("Nick")
-print(letters)
+# greet("Nick")
+# print(letters)
 
 
 # -------
 # FizzBuzz Project (If + return statements)
 # -------
+
+
+# # Solution 1
+
+# Number = int(input("Choose a number: "))
+# if (Number % 5 == 0) and (Number % 3 == 0):
+#     print("Fizz Buzz")
+# if Number % 3 == 0:
+#     print("Fizz")
+# if Number % 5 == 0:
+#     print("Buzz")
+
+
+# Solution 2
 
 # def fizz_buzz(input):
 #     if (input % 5 == 0) and (input % 3 == 0):
@@ -284,23 +298,31 @@ print(letters)
 #     if input % 5 == 0:
 #         return "Buzz"
 
-#     return input
 
 # print(fizz_buzz(15))
 
 # -----
-# Unpacking Lists
+# List + range functions. Range = lists out 0 -> n-1
 # -----
 
+# numbers = list(range(20))
+# numbers[1] = 69
+# print(numbers)
+
+
+# -----
+# Unpacking Lists - to extract certain items, prefix a variable with: *
+# -----
 
 # numbers = [1, 2, 3, 4, 5, 6, 7, 8]
 # first, second, *others = numbers
 # print(first)
 # print(others)
 
-#
+
+# -----
 # Indexing lists (creating topples)
-#
+# -----
 
 # letters = ["a", "b", "c"]
 
