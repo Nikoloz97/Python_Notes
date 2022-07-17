@@ -485,14 +485,14 @@
 # Zip function = used to combine lists (in a way that first items of each lists now become their own list, second items their own, and so on)
 # -----
 
-list1 = [1, 2, 3]
-list2 = "abc"
+# list1 = [1, 2, 3]
+# list2 = "abc"
 
-print(list(zip([12, 15, 16], "HEY", list1, list2)))
+# print(list(zip([12, 15, 16], "HEY", list1, list2)))
 
 
 # -----
-# Switching variables
+# Flipping variables = create tuples with them and set that equal to a flipepd tuple (line 501)
 # -----
 
 # x = 10
@@ -500,8 +500,8 @@ print(list(zip([12, 15, 16], "HEY", list1, list2)))
 
 # x, y = y, x
 
-# print("x", x)
-# print("y", y)
+# print("x =", x)
+# print("y =", y)
 
 
 # -----
