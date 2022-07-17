@@ -438,6 +438,22 @@
 # print(price_list)
 
 
+# ----
+# Filtering Lists
+# ----
+
+ProductAndPrice = [
+    ("Shoes", 10),
+    ("Hoodies", 30),
+    ("Shirts", 13),
+    ("Glasses", 60),
+    ("Socks", 5),
+]
+
+
+filtered_list = list(filter(lambda product: product[1] >= 10, ProductAndPrice))
+print(filtered_list)
+
 # -----
 # List Comprehensions = preferred method to filter/map lists
 # -----
