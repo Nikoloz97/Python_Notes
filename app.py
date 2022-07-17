@@ -314,31 +314,42 @@
 # Unpacking Lists - to extract certain items, prefix a variable with: *
 # -----
 
-# numbers = [1, 2, 3, 4, 5, 6, 7, 8]
-# first, second, *others = numbers
-# print(first)
-# print(others)
+# Groceries = ["Apples", "Oranges", "Broccoli",
+#              "Macaroni", "Tacos", "Hamburgers"]
+# fruit1, fruit2, vegetable, *others = Groceries
+# print(*others)
 
 
 # -----
 # Indexing lists (creating topples)
 # -----
 
-# letters = ["a", "b", "c"]
+# ToDoList = ["By some books", "Sell stuff online", "Learn Python"]
+# for index, ToDo in enumerate(ToDoList):
+#     print(index, ToDo)
 
-# for index, letter in enumerate(letters):
-#     print(index, letter)
+# -----
+# Adding/removing items from list
+# -----
 
-# letters = ["a", "b", "b", "b", "c"]
-# letters.remove("b")
-# print(letters)
+# # Below = Adding item (method = .insert)
+
+# GroceryItems = ["Tacos", "Enchiladas", "Carrots", "Cinammon sticks"]
+# GroceryItems.insert(1, "Salsa")
+# print(GroceryItems)
+
+# # Below = Removing item (can also use: .remove (insert item, no index here), and to remove whole list, .clear())
+
+# GroceryList = ["Apples", "Bananas", "Bananas", "Bananas", "Broccoli"]
+# GroceryList.pop(2)
+# print(GroceryList)
 
 
 # -----
 # Sorting Tuples
 # -----
 
-# items = [
+# partPrices = [
 #     ("muffler", 50),
 #     ("hood", 10),
 #     ("engine", 80),
@@ -350,11 +361,27 @@
 #     return partsAndPrice[1]
 
 
-# items.sort(key=basedOnPrice)
+# partPrices.sort(key=basedOnPrice)
 # print(items)
 
+# PartPrices = [
+#     ("muffler", 50),
+#     ("hood", 10),
+#     ("engine", 80),
+#     ("tires", 30)
+# ]
+
+
+# def SortingBasedOnPrice(items):
+#     return items[1]
+
+
+# PartPrices.sort(key=SortingBasedOnPrice)
+# print(PartPrices)
+
+
 # -----
-# Lambda function
+# Lambda function = shortens line of code in sorting tuples (from last lesson)
 # -----
 
 # items = [
@@ -368,9 +395,10 @@
 # print(items)
 
 # -----
-# Map function = Used to extract certain aspects from a tuple list
+# Map function = Creating a new list from an original tuple
 # -----
 
+# Inefficient method (below)
 
 # fruitAndPrices = [
 #     ("apples", 20),
@@ -378,11 +406,26 @@
 #     ("bananas", 30)
 # ]
 
-# price_list = map(lambda fruitPrice: fruitPrice[1], fruitAndPrices)
+# names = []
+# for item in fruitAndPrices:
+#     names.append(item[0])
+
+# print(names)
+
+# Cleaner version = map function (below)
+
+# fruitAndPrices = [
+#     ("apples", 20),
+#     ("oranges", 10),
+#     ("bananas", 30)
+# ]
+
+# price_list = map(lambda items: items[1], fruitAndPrices)
 # for price in price_list:
 #     print(price)
 
-# ---> below = same, but uses list function (notice no for-in loop needed anymore)
+
+# below = same, but uses list function (no for-in loop needed)
 
 
 # fruitAndPrices = [
