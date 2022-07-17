@@ -395,7 +395,7 @@
 # print(items)
 
 # -----
-# Map function = Creating a new list from an original tuple
+# Map function = Extracting a list from larger, tuple list (e.g. list of x in (x,y))
 # -----
 
 # Inefficient method (below)
@@ -439,24 +439,25 @@
 
 
 # ----
-# Filtering Lists
+# Filtering Lists = taking out touples with a certain value
 # ----
 
-ProductAndPrice = [
-    ("Shoes", 10),
-    ("Hoodies", 30),
-    ("Shirts", 13),
-    ("Glasses", 60),
-    ("Socks", 5),
-]
+# ProductAndPrice = [
+#     ("Shoes", 10),
+#     ("Hoodies", 30),
+#     ("Shirts", 13),
+#     ("Glasses", 60),
+#     ("Socks", 5),
+# ]
 
 
-filtered_list = list(filter(lambda product: product[1] >= 10, ProductAndPrice))
-print(filtered_list)
+# filtered_list = list(filter(lambda product: product[1] >= 10, ProductAndPrice))
+# print(filtered_list)
 
 # -----
-# List Comprehensions = preferred method to filter/map lists
+# List Comprehensions = preferred method to filter/map lists (noone uses filter and map functions...)
 # -----
+# Below = map List
 
 # groceryItems = [
 #     ("spinach", 5),
@@ -464,19 +465,30 @@ print(filtered_list)
 #     ("broccoli", 8)
 # ]
 
-# groceryPrices = [
-#     groceryItem for groceryItem in groceryItems if groceryItem[1] > 6]
+# groceryPrices = [groceryItem[1] for groceryItem in groceryItems]
 # print(groceryPrices)
 
+# Below = filtering List
+
+# groceryItems = [
+#     ("spinach", 5),
+#     ("tomatoes", 6),
+#     ("broccoli", 8)
+# ]
+
+# groceryPricesOver6Dollars = [
+#     groceryItem for groceryItem in groceryItems if groceryItem[1] > 6]
+# print(groceryPricesOver6Dollars)
+
 
 # -----
-# Zip function = used to combine multiple lists
+# Zip function = used to combine lists (in a way that first items of each lists now become their own list, second items their own, and so on)
 # -----
 
-# list1 = [1, 2, 3]
-# list2 = "abc"
+list1 = [1, 2, 3]
+list2 = "abc"
 
-# print(list(zip([12, 15, 16], "HEY", list1, list2)))
+print(list(zip([12, 15, 16], "HEY", list1, list2)))
 
 
 # -----
