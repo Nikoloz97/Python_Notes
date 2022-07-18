@@ -503,24 +503,24 @@
 # print("x =", x)
 # print("y =", y)
 
-
 # -----
-# Dictionary = used to "map" a key -> value
+# Dictionary (key-value pairs) - looping over dictionaries
 # -----
 
-# phoneBook = {"Norman": 440_596_9476, "Terry": 330_990_3495}
 # phoneBook = dict(Norman=440_319_8858, Terry=216_315_3218)
-# print(phoneBook)
 
-# # for names in phoneBook:
-# #     print(names, phoneBook[names])
+# for names in phoneBook:
+##     print(names, phoneBook[names])
 
 # for names, numbers in phoneBook.items():
 #     print(names, numbers)
 
-# 1st line = used for initialization
-# 2nd line = contains "keyword arguments" (e.g. x=10)
-# Lines 252-253 = same effect as the lines below it
+# for names, numbers in phoneBook.items():
+#     print(names, numbers)
+
+
+# item name = associates with key, variable[key] = value
+# Version below it = same result (little longer, but makes more sense)
 
 # -----
 # Comprehensions = used to clean code
