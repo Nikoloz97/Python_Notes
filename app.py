@@ -504,7 +504,7 @@
 # print("y =", y)
 
 # -----
-# Dictionary (key-value pairs) - looping over dictionaries
+# Dictionary (key-value pairs) - looping over dictionaries uses method: .items
 # -----
 
 # phoneBook = dict(Norman=440_319_8858, Terry=216_315_3218)
@@ -551,15 +551,27 @@
 # # Brackets = list
 # # Return = number of bytes it takes up
 
+# -----
+# Unpacking - To unpack items from list, prefix variable with: *
+# -----
 
-# -----
-# Unpacking dictionaries = used to take braces out from each key-item value
-# -----
+# # numbers = [1, 2, 3]
+# # print(*numbers)
+
+# # * = used fro both unpacking and unpacking combinations of lists
+# # For dictionaries, used: ** - but this can only be used when used to combine lists
+
+# # Notice, below (just unpacking)= will not work
+
+# # numbers = {"hey": 1, "b": 2, "c": 3, "d": 4}
+# # print(**numbers)
+
+# # However, below (unpacking combinations, will work - very weird why its limited to that)
+
 
 # peopleCleveland = {"John": 440_596_9476,
 #                    "Terry": 555_555_5555, "Ricky": 314_157_9514}
 # peopleCincinnati = {"John": 777_777_7777, "Jerimiah": 222_222_2222}
-
 
 # combinedBooks = {**peopleCleveland, **peopleCincinnati, "Jacob": 666_666_6666}
 # print(combinedBooks)
@@ -569,17 +581,22 @@
 # Exercise = develop program that determines most repeated character in a sentence
 # -----
 
-# from pprint import pprint
-# sentence = "Hello there, my name is nick"
-# char_frequency = {}
-# for char in sentence:
-#     if char in char_frequency:
-#         char_frequency[char] += 1
-#     else:
-#         char_frequency[char] = 1
-# characterList = sorted(char_frequency.items(),
-#                        key=lambda kv: kv[1], reverse=True)
-# print(characterList[0])
+# Basically:
+# 1. Develop/initialize a dictionary
+# 2. Create for loops for each character, increasing value by 1 for each time it appears in dictionary
+# 3. Define new variable: sort dictionary (sorted), convert dictionary to tuples (.items; cause remember, dictionaries can't be sorted), using lambda, sort based on the value (reverseTrue = descending order)
+# 4. Print out the first tuple (highest value)
+
+sentence = "Hello there, my name is nick"
+char_frequency = {}
+for char in sentence:
+    if char in char_frequency:
+        char_frequency[char] += 1
+    else:
+        char_frequency[char] = 1
+characterList = sorted(char_frequency.items(),
+                       key=lambda kv: kv[1], reverse=True)
+print(characterList[0])
 
 
 # -----
