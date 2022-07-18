@@ -509,40 +509,58 @@
 
 # phoneBook = dict(Norman=440_319_8858, Terry=216_315_3218)
 
-# for names in phoneBook:
-##     print(names, phoneBook[names])
+# # for names in phoneBook:
+# #     print(names, phoneBook[names])
 
 # for names, numbers in phoneBook.items():
-#     print(names, numbers)
-
-# for names, numbers in phoneBook.items():
-#     print(names, numbers)
+#     print(names,numbers)
 
 
-# item name = associates with key, variable[key] = value
-# Version below it = same result (little longer, but makes more sense)
+# # item name = associates with key, variable[key] = value
+# # Version below it = same result (little longer, but makes more sense)
 
 # -----
-# Comprehensions = used to clean code
+# Comprehensions = used to clean code (used on lists, sets, and dictionaries)
 # -----
 
 # listDivisibleBy3 = []
 # for number in range(5):
 #     listDivisibleBy3.append(number * 3)
+# print(listDivisibleBy3)
 
 # 3 lines of code above = same as below (below = cleaner code)
 
 # listDivisibleBy3 = [number * 3 for number in range(5)]
 # print(listDivisibleBy3)
 
+
 # -----
-# Unpacking dictionaries = used to take out braces away from each key-item value
+# Generator objects = helps reduce amount of memory taken from large lists (e.g. random number generator)
 # -----
 
+
+# from sys import getsizeof
+
+# values = (x * 2 for x in range(100000))
+# print("gen:", getsizeof(values))
+
+# values = [x * 2 for x in range(100000)]
+# pritn("list:", getsizeof(values))
+
+# # Braces = generator
+# # Brackets = list
+# # Return = number of bytes it takes up
+
+
+# -----
+# Unpacking dictionaries = used to take braces out from each key-item value
+# -----
 
 # peopleCleveland = {"John": 440_596_9476,
 #                    "Terry": 555_555_5555, "Ricky": 314_157_9514}
 # peopleCincinnati = {"John": 777_777_7777, "Jerimiah": 222_222_2222}
+
+
 # combinedBooks = {**peopleCleveland, **peopleCincinnati, "Jacob": 666_666_6666}
 # print(combinedBooks)
 
