@@ -628,6 +628,32 @@
 
 
 # -----
+# Raising Exceptions = adding exceptions to default error message (I.e. making it more picky - not commonly used since it slows the system)
+# -----
+
+# def how_many_burgers_did_you_have(number):
+#     if number < 0:
+#         raise ValueError("You cannot have a negative number...")
+
+
+# try:
+#     how_many_burgers_did_you_have(-5)
+# except ValueError as you_cant_eat_negative_burgers:
+#     print(you_cant_eat_negative_burgers)
+
+
+# Below = more efficient version
+
+def how_many_burgers_did_you_have(number):
+    if number < 0:
+        return None
+
+
+Burgers = how_many_burgers_did_you_have(-5)
+if Burgers == None:
+    pass
+
+# -----
 # Constructors = method used when defining a new object
 # -----
 # class PoundsInches:
