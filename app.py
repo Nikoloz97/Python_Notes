@@ -145,7 +145,7 @@
 #     print(number)
 #     number //= 2
 
-# -----------------------
+# Below = Example 2
 
 # command = ""
 # while command.lower() != "quit":
@@ -154,6 +154,15 @@
 #         print("Why hey there")
 #     if command != "Hey" or "Jeffrey":
 #         print(command)
+
+# Below = If input "0", don't know why it's giving me a return of "Your age is 0" instead of "terminated"...
+# age = ""
+# while age != 0:
+#     if age == 0:
+#         print("Terminated")
+#     else:
+#         age = int(input("Age: "))
+#         print(f"Your age is {age}")
 
 
 # ----
