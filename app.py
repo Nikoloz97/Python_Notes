@@ -584,33 +584,39 @@
 # Basically:
 # 1. Develop/initialize a dictionary
 # 2. Create for loops for each character, increasing value by 1 for each time it appears in dictionary
-# 3. Define new variable: sort dictionary (sorted), convert dictionary to tuples (.items; cause remember, dictionaries can't be sorted), using lambda, sort based on the value (reverseTrue = descending order)
+# 3. Define new variable: sort dictionary (sorted), convert dictionary to tuples (.items; dictionaries can't be sorted), using lambda...
+# ... sort based on the value (reverseTrue = descending order)
 # 4. Print out the first tuple (highest value)
 
-sentence = "Hello there, my name is nick"
-char_frequency = {}
-for char in sentence:
-    if char in char_frequency:
-        char_frequency[char] += 1
-    else:
-        char_frequency[char] = 1
-characterList = sorted(char_frequency.items(),
-                       key=lambda kv: kv[1], reverse=True)
-print(characterList[0])
+
+# sentence = "Hello there, my name is nick"
+# char_frequency = {}
+# for char in sentence:
+#     if char in char_frequency:
+#         char_frequency[char] += 1
+#     else:
+#         char_frequency[char] = 1
+# characterList = sorted(char_frequency.items(),
+#                        key=lambda kv: kv[1], reverse=True)
+# print(characterList[0])
 
 
 # -----
-# Handling Exceptions = used to create friendly error messages (prevents crashing)
+# Handling Exceptions = "try" clause - creates friendly error messages (prevents crashing)
 # -----
 
-# try:
-#     age = int(input("age: "))
-# except ValueError:
-#     print("You didn't enter an integer value for your age")
-# except ZeroDivisionError:
-#     print ("The value cannot be 0.")
-# else:
-#     print(f"Thanks for saying you are {age} years old!")
+# age = ""
+# while age != 0:
+#     try:
+#         age = int(input("age: "))
+#     except ValueError:
+#         print("You didn't enter an integer value for your age. Try again")
+#     else:
+#         if age == 0:
+#             print("Terminated")
+#         else:
+#             print(f"Processed! You have updated your age to: {age}!")
+
 
 # -----
 # Constructors = method used when defining a new object
