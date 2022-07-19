@@ -644,14 +644,17 @@
 
 # Below = more efficient version
 
-def how_many_burgers_did_you_have(number):
-    if number < 0:
-        return None
+# def how_many_burgers_did_you_have(number):
+#     if number < 0:
+#         return None
 
 
-Burgers = how_many_burgers_did_you_have(-5)
-if Burgers == None:
-    pass
+# Burgers = how_many_burgers_did_you_have(-5)
+# if Burgers == None:
+#     pass
+
+# Main takeaway = avoid raising exceptions. See if it can alternatively be handled by an if-statement first
+
 
 # -----
 # Constructors = method used when defining a new object
