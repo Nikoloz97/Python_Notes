@@ -657,20 +657,41 @@
 
 
 # -----
-# Constructors = method used when defining a new object
+# Constructor = sets initial values for an object. Uses magic method called "__init__"
 # -----
+
+# First = define the class. Uses constructor magic method
 # class PoundsInches:
-#     def __init__(self, weightPounds, heightInches):
-#         self.weightPounds = weightPounds
-#         self.heightInches = heightInches
+#     def __init__(self, weight, height):
+#         self.weight = weight
+#         self.height = height
 
-#     def WeightHeightStatement(self):
-#         print(
-#             f"Nick is {self.weightPounds} pounds, and {self.heightInches} inches")
+# # Next = inside class code block, define a method
 
+#     def WeightHeight(self):
+#         print(f"Nick is {self.weight} pounds, and {self.height} inches tall")
+
+# # Finally, set a new variable to a class and input parameters (after self). Then, call for method on the newly-defined variable
 
 # Nick = PoundsInches(150, 69)
-# Nick.WeightHeightStatement()
+# Nick.WeightHeight()
+
+
+# # Below = another example
+
+# class GradeAttendance:
+#     def __init__(self, Grade, Attendance):
+#         self.Grade = Grade
+#         self.Attendance = Attendance
+
+#     def PersonGradeAttendance(self):
+#         print(
+#             f"Jerry scored {self.Grade}% on average on his exams, while attending class {self.Attendance}% of the time")
+
+
+# Jerry = GradeAttendance(95, 75)
+# Jerry.PersonGradeAttendance()
+# print(Jerry.Attendance)
 
 
 # -----
