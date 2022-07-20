@@ -707,17 +707,14 @@
 #     def __str__(self):
 #         return f"({self.calories}, {self.spicyness})"
 
-#     def results(self):
-#         print(
-#             f"This taco is {self.calories} calories, and rated {self.spicyness} on spicyness scale of 1-10")
-
 
 # ChickenTaco = CalSpice(400, 3)
-# print(str(ChickenTaco))
+# print(ChickenTaco)
 
+# # If it wasn't for the __str__ magic method, return for Chicken Taco = random number location where "ChickenTaco" variable is stored
 
 # -----
-# Comparing Objects (def __eq__ = gathered from a magic methods database)
+# Comparing Objects (__eq__ = gathered from a magic methods website)
 # -----
 
 # class CalSpice:
@@ -728,15 +725,29 @@
 #     def __eq__(self, other):
 #         return self.calories == other.calories and self.spicyness == other.spicyness
 
-# # If you don't include lines 366-367, return = false by default
-
 
 # ChickenTaco = CalSpice(400, 3)
 # BeefBurrito = CalSpice(600, 7)
 # print(ChickenTaco == BeefBurrito)
 
+
+# class CalSpice:
+#     def __init__(self, calories, spicyness):
+#         self.calories = calories
+#         self.spicyness = spicyness
+
+#     def __gt__(self, other):
+#         return self.calories > other.calories and self.spicyness > other.spicyness
+
+
+# ChickenTaco = CalSpice(400, 3)
+# BeefBurrito = CalSpice(600, 7)
+# print(BeefBurrito > ChickenTaco)
+
+# # If you don't include __eq__ magic method, return = false (since "CalSpice" object = stored in different addresses by default)
+
 # -----
-# Doing arithmetic between objects (e.g. adding, subtracting, etc.)
+# Arithmetic between objects (e.g. adding, subtracting)
 # -----
 
 
