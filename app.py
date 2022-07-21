@@ -751,86 +751,64 @@
 # -----
 
 
-class CalSpice:
-    def __init__(self, calories, spicyness):
-        self.calories = calories
-        self.spicyness = spicyness
+# class CalSpice:
+#     def __init__(self, calories, spicyness):
+#         self.calories = calories
+#         self.spicyness = spicyness
 
-    def __add__(self, other):
-        return CalSpice(self.calories + other.calories, self.spicyness + other.spicyness)
+#     def __add__(self, other):
+#         return CalSpice(self.calories + other.calories, self.spicyness + other.spicyness)
 
-    def __str__(self):
-        return f"({self.calories}, {self.spicyness})"
-
-
-ChickenTaco = CalSpice(400, 3)
-BeefBurrito = CalSpice(600, 7)
-CombinedMeal = ChickenTaco + BeefBurrito
-print(CombinedMeal)
-print(CombinedMeal.calories)
+#     def __str__(self):
+#         return f"({self.calories}, {self.spicyness})"
 
 
-class CalSpice:
-    def __init__(self, calories, spicyness):
-        self.calories = calories
-        self.spicyness = spicyness
-
-    def __add__(self, other):
-        return CalSpice(self.calories + other.calories, self.spicyness + other.spicyness)
-
-    def __str__(self):
-        return f"{self.calories},{self.spicyness}"
+# ChickenTaco = CalSpice(400, 3)
+# BeefBurrito = CalSpice(600, 7)
+# CombinedMeal = ChickenTaco + BeefBurrito
+# print(CombinedMeal)
+# print(CombinedMeal.calories)
 
 
-ChickenTaco = CalSpice(400, 3)
-BeefBurrito = CalSpice(600, 7)
-CombinedMeal = ChickenTaco + BeefBurrito
-print(CombinedMeal)
-print(CombinedMeal.calories)
-
-# Again, __str__ magic method = makes the return for "CombinedMeal" possible (otherwise returns random location in memory the variable is stored)
+# __str__ magic method = makes the return for "CombinedMeal" possible (otherwise returns random location in memory the variable is stored)
 
 
 # -----
-# Making a custom container
+# Making a custom container (lists, sets, dictionaries = all examples of containers)
 # -----
 
-# class HowMuchThisWordIsFound:
-#     def __init__(self):
-#         self.words = {}
-
-#     # def add(self, word):
-#     #     self.words[word.lower] = self.words.get(word.lower, 0) + 1
-
-#     def __setitem__(self, word, count):
-#         self.words[word.lower()] = count
-
-
-# WordSearcher = HowMuchThisWordIsFound()
-# WordSearcher["python"] = 10
-# # WordSearcher.add("python")
-# # WordSearcher.add("Python")
-# # WordSearcher.add("python")
-# print(WordSearcher.words)
-
-
-# -----
-#
-# -----
+# Below = find out how many times a variable is "tagged" with "Python"
 
 # class HowMuchThisWordIsFound:
 #     def __init__(self):
 #         self.words = {}
 
 #     def add(self, word):
-#         self.words[word.lower] = self.words.get(word.lower, 0) + 1
-
-#     def __getitem__(self, word):
-#         return self.words.get(word.lower(), 0)
+#         self.words[word.lower()] = self.words.get(word.lower(), 0) + 1
 
 
 # WordSearcher = HowMuchThisWordIsFound()
 # WordSearcher.add("Python")
+# WordSearcher.add("python")
 # WordSearcher.add("Python")
-# WordSearcher.add("Python")
-# print(WordSearcher["python"])
+# print(WordSearcher.words)
+
+
+# Below: "getitem" magic method = allows for getting count of tag by square-brackets: "WordSearcher["python"]"
+# Honestly, not sure what he means by this. Don't know what this adds...
+
+class HowMuchThisWordIsFound:
+    def __init__(self):
+        self.words = {}
+
+    def add(self, word):
+        self.words[word.lower()] = self.words.get(word.lower(), 0) + 1
+
+    def __getitem__(self, word):
+        return self.words.get(word.lower(), 0)
+
+
+WordSearcher = HowMuchThisWordIsFound()
+WordSearcher["python"]
+WordSearcher.add("Python")
+print(WordSearcher.words)
