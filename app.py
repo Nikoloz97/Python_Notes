@@ -751,19 +751,44 @@
 # -----
 
 
-# class CalSpice:
-#     def __init__(self, calories, spicyness):
-#         self.calories = calories
-#         self.spicyness = spicyness
+class CalSpice:
+    def __init__(self, calories, spicyness):
+        self.calories = calories
+        self.spicyness = spicyness
 
-#     def __add__(self, other):
-#         return CalSpice(self.calories + other.calories, self.spicyness + other.spicyness)
+    def __add__(self, other):
+        return CalSpice(self.calories + other.calories, self.spicyness + other.spicyness)
+
+    def __str__(self):
+        return f"({self.calories}, {self.spicyness})"
 
 
-# ChickenTaco = CalSpice(400, 3)
-# BeefBurrito = CalSpice(600, 7)
-# CombinedCalSpice = ChickenTaco + BeefBurrito
-# print(CombinedCalSpice)
+ChickenTaco = CalSpice(400, 3)
+BeefBurrito = CalSpice(600, 7)
+CombinedMeal = ChickenTaco + BeefBurrito
+print(CombinedMeal)
+print(CombinedMeal.calories)
+
+
+class CalSpice:
+    def __init__(self, calories, spicyness):
+        self.calories = calories
+        self.spicyness = spicyness
+
+    def __add__(self, other):
+        return CalSpice(self.calories + other.calories, self.spicyness + other.spicyness)
+
+    def __str__(self):
+        return f"{self.calories},{self.spicyness}"
+
+
+ChickenTaco = CalSpice(400, 3)
+BeefBurrito = CalSpice(600, 7)
+CombinedMeal = ChickenTaco + BeefBurrito
+print(CombinedMeal)
+print(CombinedMeal.calories)
+
+# Again, __str__ magic method = makes the return for "CombinedMeal" possible (otherwise returns random location in memory the variable is stored)
 
 
 # -----
