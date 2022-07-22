@@ -777,38 +777,29 @@
 # Making a custom container (lists, sets, dictionaries = all examples of containers)
 # -----
 
-# Below = find out how many times a variable is "tagged" with "Python"
+# # Objective = find out how many times a variable is "tagged" with "Python"
+
+# # First, define class, make constructor, initialize dictionary ("built-in data structure")
 
 # class HowMuchThisWordIsFound:
 #     def __init__(self):
 #         self.words = {}
 
+# # Next = add function: used to increment the value in the key-value pair. Key = left of equal sign, value = right of equal sign
+
 #     def add(self, word):
 #         self.words[word.lower()] = self.words.get(word.lower(), 0) + 1
 
+# # Next = getitem. Allows us to get data from: WordSearcher["python"]
+
+#     def __getitem__(self, word):
+#         return self.words.get(word.lower(), 0)
+
 
 # WordSearcher = HowMuchThisWordIsFound()
+# WordSearcher["python"]
 # WordSearcher.add("Python")
 # WordSearcher.add("python")
-# WordSearcher.add("Python")
+# WordSearcher.add("pYtHoN")
 # print(WordSearcher.words)
-
-
-# Below: "getitem" magic method = allows for getting count of tag by square-brackets: "WordSearcher["python"]"
-# Honestly, not sure what he means by this. Don't know what this adds...
-
-class HowMuchThisWordIsFound:
-    def __init__(self):
-        self.words = {}
-
-    def add(self, word):
-        self.words[word.lower()] = self.words.get(word.lower(), 0) + 1
-
-    def __getitem__(self, word):
-        return self.words.get(word.lower(), 0)
-
-
-WordSearcher = HowMuchThisWordIsFound()
-WordSearcher["python"]
-WordSearcher.add("Python")
-print(WordSearcher.words)
+# print(WordSearcher["python"])
