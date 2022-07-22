@@ -222,8 +222,8 @@
 
 # ----------------
 
-# def ShoppingList(*words):
-#     for word in words:
+# def ShoppingList(*__words):
+#     for word in __words:
 #         print(word)
 
 
@@ -777,29 +777,123 @@
 # Making a custom container (lists, sets, dictionaries = all examples of containers)
 # -----
 
-# # Objective = find out how many times a variable is "tagged" with "Python"
+# Objective = find out how many times a variable is "tagged" with "Python"
 
-# # First, define class, make constructor, initialize dictionary ("built-in data structure")
+# First, define class, make constructor, initialize dictionary ("built-in data structure")
 
 # class HowMuchThisWordIsFound:
 #     def __init__(self):
-#         self.words = {}
+#         self.__words = {}
 
-# # Next = add function: used to increment the value in the key-value pair. Key = left of equal sign, value = right of equal sign
+# # setitem = allows to set initial value for "python" tag. See WordSearcher["python"] = 10
+
+#     def __setitem__(self, word, count):
+#         self.__words[word.lower()] = count
+
+# # Add function = used to increment the value in the key-value pair. See WordSarcher.add("Python")
 
 #     def add(self, word):
-#         self.words[word.lower()] = self.words.get(word.lower(), 0) + 1
+#         # Below: key = left of equal sign, value = right of equal sign
+#         self.__words[word.lower()] = self.__words.get(word.lower(), 0) + 1
 
-# # Next = getitem. Allows us to get data from: WordSearcher["python"]
+# # getitem = allows us to get data from: WordSearcher["python"]
 
 #     def __getitem__(self, word):
-#         return self.words.get(word.lower(), 0)
+#         return self.__words.get(word.lower(), 0)
 
 
 # WordSearcher = HowMuchThisWordIsFound()
-# WordSearcher["python"]
+# WordSearcher["python"] = 10
 # WordSearcher.add("Python")
 # WordSearcher.add("python")
 # WordSearcher.add("pYtHoN")
-# print(WordSearcher.words)
+# print(WordSearcher.__words)
 # print(WordSearcher["python"])
+
+
+#  -----
+#  Private Members = used to access "underlying dictionary" (i.e. words) in which the attribute/method is made private (by underscores)
+#  -----
+
+# To make an attribute/method (words) private, prefix with two underscores
+
+# class HowMuchThisWordIsFound:
+#     def __init__(self):
+#         self.__words = {}
+
+#     def __setitem__(self, word, count):
+#         self.__words[word.lower()] = count
+
+#     def add(self, word):
+#         self.__words[word.lower()] = self.__words.get(word.lower(), 0) + 1
+
+#     def __getitem__(self, word):
+#         return self.__words.get(word.lower(), 0)
+
+
+# WordSearcher = HowMuchThisWordIsFound()
+# WordSearcher.add("Python")
+# WordSearcher.add("pYTHoN")
+# print(WordSearcher._HowMuchThisWordIsFound__words)
+
+# -----
+# Properties = used to limit the values an attribute can take
+# -----
+
+# Goal = Don't wan't amazon total cart price to be a negative number
+# Not using property yet.. (next part we will)
+
+# class AmazonCartTotalPrice:
+#     # Step 1 = in constructor, call for set_price method
+#     def __init__(self, totalPrice):
+#         self.set_totalPrice(totalPrice)
+
+#     # Step 2 = method for getting the attribute
+#     def get_totalPrice(self):
+#         return self.__totalPrice
+
+#     # Step 3 = method for setting the attribute
+#     # Here, we will be raising an exception
+#     def set_totalPrice(self, value):
+#         if value < 0:
+#             raise ValueError("Price cannot be a negative value")
+#         self.__totalPrice = value
+
+# # Test Run...
+
+
+# CartTotal = AmazonCartTotalPrice(-50)
+
+
+# # Below = using same code as above, but now, using properties (more "pythonic")
+
+# class AmazonCartTotalPrice:
+#     # Step 1 = create constructor
+
+#     def __init__(self, totalPrice):
+#         self.totalPrice = totalPrice
+
+#     # Step 2 = "Get" decorator = used to hide get method from appearing after dot operator (not needed to appear there)
+#     @property
+#     # Step 3 = create method for getting the attribute (We have decorator, so don't need to explicitly write get method)
+#     def totalPrice(self):
+#         return self.__totalPrice
+
+#     # Step 3 = "Set" Decorator
+
+#     @totalPrice.setter
+#     # Step 3= method for setting the attribute. Here, raising exception (if value less than zero)
+#     def totalPrice(self, value):
+#         if value < 0:
+#             raise ValueError("Price cannot be a negative value")
+#     # ... Otherwise, return that value
+#         self.__totalPrice = value
+
+
+# # Test Run...
+
+
+# CartTotal = AmazonCartTotalPrice(10)
+# print(CartTotal.totalPrice)
+# CartTotal.totalPrice = -1
+# print(CartTotal.totalPrice)
