@@ -953,6 +953,9 @@
 # # Want to make it so that if something is opened/closed, can't opened/closed again
 # # Raise a "custom exception" (one that's not built-in by Python)...
 
+# from abc import ABC, abstractmethod
+
+
 # class InvalidOperationError (Exception):
 #     pass
 
@@ -971,12 +974,13 @@
 
 #     # Define close method
 #     # Refer to custom exception
-#     def clse(self):
+#     def close(self):
 #         if not self.opened:
 #             raise InvalidOperationError("Stream is already closed")
 #         self.opened = False
 
 # # Creating the parent and child classes
+
 # class FileStream (Stream):
 #     def read(self):
 #         print("Reading data from a file")
@@ -985,3 +989,48 @@
 # class NetworkStream (Stream):
 #     def read(self):
 #         print("Reading data from a network")
+
+
+# ----
+#  Polymorphisms
+# ----
+# Can be used to "render" user-interface of an application
+# Objective = Have a form that has a dropdown list and textbox, and want to pass that to a function called "draw()" that renders both of them in one form
+
+
+from abc import ABC, abstractmethod
+
+# Create an abstract class
+
+
+class UIControl(ABC):
+    @abstractmethod
+    def draw(self):
+        pass
+
+# Create textbox and dropdownlist classes (children of the abstract class)
+
+
+class TextBox(UIControl):
+    def draw(self):
+        print("TextBox")
+
+
+class DropDownList(UIControl):
+    def draw(self):
+        print("DropDownList")
+
+# Create draw() function. Make it iterable (so that it extracts all components (i.e. the textbox + dropdownlist))
+
+
+def draw(controls):
+    for control in controls:
+        control.draw()
+
+
+ddl = DropDownList()
+textbox = TextBox()
+draw([ddl, textbox]])
+
+# Called "Polymorphism" since draw() function here takes many forms (i.e. can take on textbox + dropdown list in one scenario, and...
+# ... maybe radio lists, checkboxes, description lists in another)
