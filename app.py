@@ -844,20 +844,20 @@
 # Not using property yet.. (next part we will)
 
 # class AmazonCartTotalPrice:
-#     # Step 1 = in constructor, call for set_price method
+#     # Step 1 = in constructor, refer to set method (defined later
 #     def __init__(self, totalPrice):
-#         self.set_totalPrice(totalPrice)
+#         self.set_summaryTotal(totalPrice)
 
-#     # Step 2 = method for getting the attribute
-#     def get_totalPrice(self):
-#         return self.__totalPrice
+#     # Step 2 = define a get method
+#     def get_summaryTotal(self):
+#         return self.__summaryTotal
 
 #     # Step 3 = method for setting the attribute
-#     # Here, we will be raising an exception
-#     def set_totalPrice(self, value):
+#     # Here = raise exception
+#     def set_summaryTotal(self, value):
 #         if value < 0:
 #             raise ValueError("Price cannot be a negative value")
-#         self.__totalPrice = value
+#         self.__summaryTotal = value
 
 # # Test Run...
 
@@ -871,29 +871,29 @@
 #     # Step 1 = create constructor
 
 #     def __init__(self, totalPrice):
-#         self.totalPrice = totalPrice
+#         self.summaryTotal = totalPrice
 
 #     # Step 2 = "Get" decorator = used to hide get method from appearing after dot operator (not needed to appear there)
 #     @property
 #     # Step 3 = create method for getting the attribute (We have decorator, so don't need to explicitly write get method)
-#     def totalPrice(self):
-#         return self.__totalPrice
+#     def summaryTotal(self):
+#         return self.__summaryTotal
 
 #     # Step 3 = "Set" Decorator
 
-#     @totalPrice.setter
+#     @summaryTotal.setter
 #     # Step 3= method for setting the attribute. Here, raising exception (if value less than zero)
-#     def totalPrice(self, value):
+#     def summaryTotal(self, value):
 #         if value < 0:
 #             raise ValueError("Price cannot be a negative value")
 #     # ... Otherwise, return that value
-#         self.__totalPrice = value
+#         self.__summaryTotal = value
 
 
 # # Test Run...
 
 
 # CartTotal = AmazonCartTotalPrice(10)
-# print(CartTotal.totalPrice)
-# CartTotal.totalPrice = -1
-# print(CartTotal.totalPrice)
+# print(CartTotal.summaryTotal)
+# CartTotal.summaryTotal = -1
+# print(CartTotal.summaryTotal)
