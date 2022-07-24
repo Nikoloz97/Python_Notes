@@ -897,3 +897,91 @@
 # print(CartTotal.summaryTotal)
 # CartTotal.summaryTotal = -1
 # print(CartTotal.summaryTotal)
+
+
+#  -----
+#  Method Overriding: if methods are used to allow for parent method to be inherited to child (e.g. if both initialized to something)
+#  -----
+# # Below, methods size and weight = initialized
+# # To override, use function: super
+
+
+# class Animal:
+#     def __init__(self):
+#         print("It's an animal")
+#         self.size = "bigger than an insect"
+
+
+# class Mammal(Animal):
+#     def __init__(self):
+#         super().__init__()
+#         print("Does not lay eggs")
+#         self.weight = "weighs more than an insect"
+
+
+# Zebra = Mammal()
+# print(Zebra.size)
+# # print(Zebra.weight)
+
+# # Notice the order in which the return is given (flip-flop between the two print statements above)
+# # Can change this order by changing the line in which the super function is called
+
+
+# class Animal:
+#     def __init__(self):
+#         print("It's an animal")
+#         self.size = "bigger than an insect"
+
+
+# class Mammal(Animal):
+#     def __init__(self):
+#         print("Does not lay eggs")
+#         self.weight = "weighs more than an insect"
+#         # Now, super function is on the bottom. The print statement directly above gets called first, then the rest
+#         super().__init__()
+
+
+# Zebra = Mammal()
+# print(Zebra.size)
+# # print(Zebra.weight)
+
+
+# -----
+# Good example of Inheritance
+# -----
+
+# # Want to make it so that if something is opened/closed, can't opened/closed again
+# # Raise a "custom exception" (one that's not built-in by Python)...
+
+# class InvalidOperationError (Exception):
+#     pass
+
+
+# class Stream:
+#     # Initialize an "open flag" (telling you when the application is opened)
+#     def __init__(self):
+#         self.opened = False
+
+#     # Define open method
+#     # Refer to  custom exception
+#     def open(self):
+#         if self.opened:
+#             raise InvalidOperationError("Stream is already opened")
+#         self.opened = True
+
+#     # Define close method
+#     # Refer to custom exception
+#     def clse(self):
+#         if not self.opened:
+#             raise InvalidOperationError("Stream is already closed")
+#         self.opened = False
+
+# # Creating the parent and child classes
+# class FileStream (Stream):
+#     def read(self):
+#         print("Reading data from a file")
+
+
+# class NetworkStream (Stream):
+#     def read(self):
+#         print("Reading data from a network")
