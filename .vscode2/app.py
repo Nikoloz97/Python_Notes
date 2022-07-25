@@ -1066,3 +1066,15 @@
 # print(GroceryList_1 == GroceryList_2)
 
 # # Requires less code than eq magic method. But downside = "immutable" (we cannot alter any of these grocery lists)
+
+
+# -----
+# Package = a subdirectory (sub-folder) with multiple files
+# -----
+
+# Here, created subdirectory "ecommerce". One of the files have to be __init__.py
+# After doing so, need to adjust the import statement (i.e. prefix by the subdirectory )
+
+from ecommerce.sales import calc_shipping
+
+calc_shipping()
