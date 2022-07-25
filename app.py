@@ -1048,3 +1048,21 @@
 
 # Mylist = MyNumberList()
 # Mylist.append("1")
+
+# -----
+# Data Classes - classes that have no functionality, just data. For these, instead of using eq magic method, use "namedtuple" method
+# -----
+
+# # Objective = find a way to equate 2 grocery lists that specify for the same things (e.g. both ask for 1 apple, 2 bananas)
+
+# # Import package
+# from collections import namedtuple
+
+# GroceryLists = namedtuple("Point", ["apples", "bananas"])
+# # For arguments, they need to be in key-word  form
+# GroceryList_1 = GroceryLists(apples=1, bananas=2)
+# # print(GroceryList_1.apples)
+# GroceryList_2 = GroceryLists(apples=1, bananas=2)
+# print(GroceryList_1 == GroceryList_2)
+
+# # Requires less code than eq magic method. But downside = "immutable" (we cannot alter any of these grocery lists)
