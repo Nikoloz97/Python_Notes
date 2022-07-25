@@ -1072,9 +1072,13 @@
 # Package = a subdirectory (sub-folder) with multiple files
 # -----
 
-# Here, created subdirectory "ecommerce". One of the files have to be __init__.py
-# After doing so, need to adjust the import statement (i.e. prefix by the subdirectory )
+# # Here, created subdirectory "ecommerce". One of the files have to be __init__.py
+# # After doing so, need to adjust the import statement (i.e. prefix by the subdirectory )
 
-from ecommerce.sales import calc_shipping
+# from ecommerce.sales import calc_shipping
 
-calc_shipping()
+# calc_shipping()
+
+# # Below = importing a script (see sales.py and __init__.py - run the code)
+
+# from ecommerce import sales
