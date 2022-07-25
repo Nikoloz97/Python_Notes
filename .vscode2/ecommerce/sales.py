@@ -4,3 +4,6 @@ def calc_tax():
 
 def calc_shipping():
     pass
+
+
+print("Sales initialized", __name__)
