@@ -994,43 +994,57 @@
 # ----
 #  Polymorphisms
 # ----
-# Can be used to "render" user-interface of an application
-# Objective = Have a form that has a dropdown list and textbox, and want to pass that to a function called "draw()" that renders both of them in one form
+# # Can be used to "render" user-interface of an application
+# # Objective = Have a form that has a dropdown list and textbox, and want to pass that to a function called "draw()" that renders both of them in one form
 
 
-from abc import ABC, abstractmethod
+# from abc import ABC, abstractmethod
 
-# Create an abstract class
+# # Create an abstract base class
 
+# class UIControl(ABC):
+#     @abstractmethod
+#     def draw(self):
+#         pass
 
-class UIControl(ABC):
-    @abstractmethod
-    def draw(self):
-        pass
-
-# Create textbox and dropdownlist classes (children of the abstract class)
-
-
-class TextBox(UIControl):
-    def draw(self):
-        print("TextBox")
+# # Create textbox and dropdownlist classes (children of the abstract class)
 
 
-class DropDownList(UIControl):
-    def draw(self):
-        print("DropDownList")
+# class TextBox(UIControl):
+#     def draw(self):
+#         print("TextBox")
+
+
+# class DropDownList(UIControl):
+#     def draw(self):
+#         print("DropDownList")
 
 # Create draw() function. Make it iterable (so that it extracts all components (i.e. the textbox + dropdownlist))
+# def draw(controls):
+#     for control in controls:
+#         control.draw()
 
 
-def draw(controls):
-    for control in controls:
-        control.draw()
+# ddl = DropDownList()
+# textbox = TextBox()
+# draw([ddl, textbox])
+
+# # Called "Polymorphism" since draw() function here takes many forms (i.e. can take on textbox + dropdown list in one scenario, and...
+# # ... maybe radio lists, checkboxes, description lists in another)
+
+# ----
+# Extending Built-in Types = using inheritance on classes that come Built-in on python
+# ----
+
+# # Goal = create a way to log the times you append (i.e. add) something
+
+# class MyNumber(list):
+#     def append(self, object):
+#         # "Extend" the built-in append method (i.e. does whatever it does normally by default, but add this print statement to it)
+#         print("Something was added!")
+#         # Call the append method of the base ("super") class
+#         super().append(object)
 
 
-ddl = DropDownList()
-textbox = TextBox()
-draw([ddl, textbox]])
-
-# Called "Polymorphism" since draw() function here takes many forms (i.e. can take on textbox + dropdown list in one scenario, and...
-# ... maybe radio lists, checkboxes, description lists in another)
+# Mylist = MyNumberList()
+# Mylist.append("1")
