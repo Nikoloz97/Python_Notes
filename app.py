@@ -1124,7 +1124,7 @@
 
 
 # ----
-# Creating a Zip file
+# Zip file (Part 1)
 # ----
 
 # from pathlib import Path
@@ -1144,7 +1144,7 @@
 # zip.close()
 
 # -----
-# Reading/Modifying Zip File (Part 2 from above)
+# Zip File (Part 2) = Reading/Modifying Zip file
 # -----
 
 # from pathlib import Path
