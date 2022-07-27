@@ -1,1 +1,0 @@
-print("E-commerce initialize")

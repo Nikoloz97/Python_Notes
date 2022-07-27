@@ -1075,37 +1075,38 @@
 
 
 # -----
-# Package = a subdirectory (sub-folder) with multiple files
+# Package = a "subdirectory" (sub-folder) with multiple files
 # -----
 
-# # Here, created subdirectory "ecommerce". One of the first files has to be titled __init__.py
+# # Here, created subdirectory "ecommerce". Needs to include a file __init__.py
 # # After doing so, need to adjust the import statement (i.e. prefix by the subdirectory )
 
 # from ecommerce.sales import calc_shipping
 
 # calc_shipping()
 
-# # Below = importing a script (see sales.py and __init__.py - run the code)
+# # Below = importing a script (see sales.py and __init__.py - run the code). Above = also does this function (even though specifically asking for "sales" file, gives you __init__ file info as well)
 
 # from ecommerce import sales
-
 
 # ----
 # Working with paths/directories/files
 # ----
 
-# Inside Path class, can modify/observe a path, directory, or file
-# Below = example of working with a file
+# # Inside Path class, can modify/observe a path, directory, or file
+# # Below = example of working with a file
 
 # from pathlib import Path
 
 # path = Path("ecommerce/__init__.py")
 
-# # Common methods = below
-# path.exists()
-# path.rename()
-# path.unlink()
-# path.stat()
+# # Put exists method in print function
+# # path.exists()
+# # path.rename()
+
+# #.unlink = deletes the path (i.e. deletes __init__.py in ecommerce directory)
+# # path.unlink()
+# # path.stat()
 
 
 # ----
@@ -1120,38 +1121,80 @@
 # target = Path() / "__init__.py"
 # shutil.copy(source, target)
 
-# # When you run it, creates another __init__.py file (that's not in a directory)
+# # When you run it, creates another __init__.py file (that's not in a directory - but can always make it one)
 
 
 # ----
 # Zip file (Part 1)
 # ----
 
+# # Goal = gather all the files from an ecommerce directory and "write" (store it all into) a zip file
+
 # from pathlib import Path
 # from zipfile import ZipFile
 
-# # Goal = gather all the files from ecommerce directory and "write" to a zip file
 
-# # "w" = writes to zip file
+# # "w" = writes to zip file (i.e. stores everything into it)
 # # In case something goes wrong, "with" statement prevents error (better replacement than a close method (below))
 
-# with ZipFile("files.zip", "w") as zip:
-#     # .rglob = used to recursively find all files and its children
-#     # Iterate over it (since returns a generator)
-#     for path in Path("ecommerce").rglob("*.*"):
-#         zip.write(path)
+# with ZipFile("ecommerce_files.zip", "w") as zip:
+#     # .rglob = used to "recursively"(i.e. repeatedly) find all files and its children
+#     # Iterate over it (since default = generator) - create a "zip" variable
+#     for each_file_path_inside_ecommerce in Path("ecommerce").rglob("*.*"):
+#         zip.write(each_file_path_inside_ecommerce)
 
-# zip.close()
+# # Keep  line below in a comment (just demonstrates with-as statement = doesn't need a close statement)
+# # zip.close()
+
 
 # -----
-# Zip File (Part 2) = Reading/Modifying Zip file
+# Zip File (Part 2)
 # -----
+
+# Goal = Extract the Zip file created (for modifying/reading)
+
 
 # from pathlib import Path
 # from zipfile import ZipFile
 
 # # namelist method = returns all the names of files
-# with ZipFile("files.zip") as zip:
+# with ZipFile("ecommerce_files.zip") as zip:
+#     # namelist = returns list of file names
 #     print(zip.namelist())
-#     # Can extract the content of the zip file into a directory called "Extracted_Zip_File"
+#     # Extractall function = extracts the content of each file name in zip into a directory created called "Extracted_Zip_File"
 #     zip.extractall("Extracted_Zip_File")
+
+
+# ----
+# Working with JSON (part 1)
+# ----
+
+# # Goal = create an array of dictionaries, and "write it" to a file
+
+
+# import json
+# from pathlib import Path
+
+# # E.g. create an array of dictionaries (each item = key-value pairs)
+# movies = [{"id": 1, "title": "Catch Me If You Can", "year": 2003},
+#           {"id": 2, "title": "Terminator", "year": 1989}
+#           ]
+
+# MoviesList = json.dumps(movies)
+# Path("movies.json").write_text(MoviesList)
+
+# # Here, created an array of dictionaries to begin with - so JSON didn't do any conversion. Not always the case (esp if diff language)
+
+
+# ----
+# Working with JSON (part 2)
+# ----
+# # Goal = read JSON File from an external source (i.e. from a different website)
+
+# import json
+# from pathlib import Path
+
+# MoviesList = Path("movies.json"). read_text()
+# # loads function = returns an array of dictionaries
+# Movies = json.loads(data)
+# print(Movies[0]["title"])
