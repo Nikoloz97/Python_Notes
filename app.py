@@ -1169,7 +1169,7 @@
 # Working with JSON (part 1)
 # ----
 
-# # Goal = create an array of dictionaries, and "write it" to a file
+# Goal = create an array of dictionaries, and "write it" to a file
 
 
 # import json
@@ -1197,4 +1197,96 @@
 # MoviesList = Path("movies.json"). read_text()
 # # loads function = returns an array of dictionaries
 # Movies = json.loads(data)
+# # Can extract whats needed from the dictionary using square brackets
 # print(Movies[0]["title"])
+
+
+# ----
+# Working with SQL Database (Part 1) - Creating a table
+# ----
+
+# # Goal = create a table of movies, each containing an ID, Title, and Year created
+
+# import sqlite3
+# import json
+# from pathlib import Path
+
+
+# # Assign list of movies to a variable
+# # read_text function = loads all content as a string
+# MoviesList = json.loads(Path("Movies/movies.json").read_text())
+# # Make sure it works
+# print(MoviesList)
+
+# # Store movies list to a database
+# # Use method connect
+# with sqlite3.connect("TheMoviesDatabase.sqlite3") as connection:
+#     # Create a command for movies table (for modifying the data)
+#     # Question marks = placeholders for the column names (i.e. id, name, year)
+#     command = "INSERT INTO Movies VALUES(?, ?, ?)"
+#     # Iterate over MoviesList
+#     for movie in MoviesList:
+#         connection.execute(command, tuple(movie.values()))
+#     # Create commit method
+#     connection.commit()
+
+
+# ----
+# Working with SQL Database (Part 2) - Reading a table
+# ----
+
+# # Goal = read a movie list data from SQL database (i.e. get a return in tuple form)
+
+# import sqlite3
+# import json
+# from pathlib import Path
+
+
+# with sqlite3.connect("TheMoviesDatabase.sqlite3") as connection:
+#     command = "SELECT * FROM Movies"
+#     cursor = connection.execute(command)
+
+#     # fetchall = returns all columns at once
+#     movies = cursor.fetchall()
+#     print(movies)
+
+
+# -----
+# Timestamps = used to track the time of something
+# -----
+
+# # Goal = figure out how long it took to "send" 10,000 emails
+
+# import time
+
+
+# def send_emails():
+#     for i in range(10000):
+#         pass
+
+
+# start = time.time()
+# send_emails()
+# end = time.time()
+# duration = end - start
+# print(duration)
+
+
+# -----
+# Generating Random Values
+# -----
+
+# import random
+
+# # Every run = different floating point value
+# print(random.random())
+
+# # Different integer between values
+# print(random.randint(1, 10))
+
+# # Randomly picking a number in an array of values
+# print(random.choice([1, 2, 3, 4]))
+
+# # Goal = generating a random password
+# # Empty string = serves to join the words together (can include anything in it)
+# print("".join(random.choices("abcdefghijklmnop", k=6)))
