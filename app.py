@@ -269,16 +269,31 @@
 # Global variables = take precedence over other variables of same name (even if local)
 # -----
 
+# # Below: letters = global variable
 # letters = "goodbye"
 
 
 # def greet(name):
+#     # Letters here = local variable
 #     for letters in name:
 #         print(letters)
 
 
 # greet("Nick")
 # print(letters)
+
+
+# # For-in loop using a number array...
+
+# NumberArray = [0, 2, 4, 6, 8, 10]
+
+
+# def Listout(items):
+#     for eachitem in items:
+#         print(eachitem)
+
+
+# Listout(NumberArray)
 
 
 # -------
@@ -501,16 +516,29 @@
 
 
 # -----
-# Flipping variables = create tuples with them and set that equal to a flipepd tuple (line 501)
+# Changing variables
 # -----
 
+# # Goal = flip the value of the variables
 # x = 10
 # y = 11
 
+# #Create a Tuple and set them to a flipped version
 # x, y = y, x
 
 # print("x =", x)
 # print("y =", y)
+
+# # Can do it with strings...
+
+# a = "Nick"
+# b = "Hello there,"
+# c = "My name is"
+
+# a, b, c = b, c, a
+
+# print(a, b, c)
+
 
 # -----
 # Dictionary (key-value pairs) - looping over dictionaries uses method: .items
@@ -614,6 +642,9 @@
 # Handling Exceptions = "try" clause - creates friendly error messages (prevents crashing)
 # -----
 
+# Goal = for an age input system, \if no value is put in, system tells you to try again. If value = 0, terminates system.
+
+
 # age = ""
 # while age != 0:
 #     try:
@@ -622,7 +653,7 @@
 #         print("You didn't enter an integer value for your age. Try again")
 #     else:
 #         if age == 0:
-#             print("Terminated")
+#             print("Operation Terminated")
 #         else:
 #             print(f"Processed! You have updated your age to: {age}!")
 
@@ -866,10 +897,11 @@
 
 
 # # Below = using same code as above, but now, using properties (more "pythonic")
+# # Goal = Don't wan't amazon total cart price to be a negative number
+
 
 # class AmazonCartTotalPrice:
 #     # Step 1 = create constructor
-
 #     def __init__(self, totalPrice):
 #         self.summaryTotal = totalPrice
 
@@ -879,14 +911,13 @@
 #     def summaryTotal(self):
 #         return self.__summaryTotal
 
-#     # Step 3 = "Set" Decorator
-
+#     # Step 3 = "Set" decorator
 #     @summaryTotal.setter
-#     # Step 3= method for setting the attribute. Here, raising exception (if value less than zero)
+#     # Step 3= method for setting the attribute. Here, raising exception (what if value less than zero)
 #     def summaryTotal(self, value):
 #         if value < 0:
 #             raise ValueError("Price cannot be a negative value")
-#     # ... Otherwise, return that value
+#     # ... Otherwise, return that value(
 #         self.__summaryTotal = value
 
 
@@ -897,6 +928,23 @@
 # print(CartTotal.summaryTotal)
 # CartTotal.summaryTotal = -1
 # print(CartTotal.summaryTotal)
+
+
+# # Below = without comments
+
+# class AmazonCartTotalPrice:
+#     def __init__(self, totalPrice):
+#         self.summaryTotal = totalPrice
+
+#     @property
+#     def summaryTotal(self):
+#         return self.__summaryTotal
+
+#     @summaryTotal.setter
+#     def summaryTotal(self, value):
+#         if value < 0:
+#             raise ValueError("Price cannot be a negative value")
+#         self.__summaryTotal = value
 
 
 #  -----
@@ -1290,3 +1338,110 @@
 # # Goal = generating a random password
 # # Empty string = serves to join the words together (can include anything in it)
 # print("".join(random.choices("abcdefghijklmnop", k=6)))
+
+# ----
+# Sending Emails
+# ----
+
+# # If you experience issues, it comes from the format of the HTML file. So play around with the lines python arises as issues
+
+# # Allows to send email in both HTML and plain form (if HTML not supported)...
+# from email.mime.multipart import MIMEMultipart
+# # If there is a header not supported by MIMEMultipart, treat as string...
+# from email.mime.text import MIMEText
+# # Import image...
+# from email.mime.image import MIMEImage
+# # Create a path to image...
+# from pathlib import Path
+# # Create an HTML template...
+# from string import Template
+# # Send message through an SMTP server...
+# import smtplib
+
+
+# # Create an HTML template. read_text = returns content as a string
+# template = Template(Path("mail.html").read_text())
+
+# message = MIMEMultipart()
+# # Set headers supported by MIMEMultipart (e.g. from, to , subject)
+# message["from"] = "Nick Gotsy"
+# message["to"] = "nick.gotsy@gmail.com"
+# message["subject"] = "Hey there, it's Nick!"
+# # Substitute method = allows for dynamic parameters (in html doc, used $name)
+# body = template.substitute({"name": "Niko"})
+# # Body not supported by MIMEMultipart. So need to attach it (via attach method)
+# message.attach(MIMEText(body, "html"))
+# # method read_bytes = returns data in binary
+# message.attach(MIMEImage(Path("Dice.png").read_bytes()))
+
+
+# # To connect with SMTP server, call the module with class SMTP
+# # Once done with it, need to close it - so use a with statement
+# with smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
+#     # "Hello" message for smtp server
+#     smtp.ehlo()
+#     # SMTP connection is "transport-layer security" (messages = become encrypted)
+#     smtp.starttls()
+#     # Input username and password. Password = has to be a generated app pasword (found in security section in Google account)
+#     smtp.login("nick.gotsy@gmail.com", "tfjmulhjqswnzzbz")
+#     # Pass through the object
+#     smtp.send_message(message)
+#     # For confirmation things went through...
+#     print("Sent...")
+
+
+# # Below = non-comment version
+
+
+# from email.mime.multipart import MIMEMultipart
+# from email.mime.text import MIMEText
+# from email.mime.image import MIMEImage
+# from pathlib import Path
+# from string import Template
+# import smtplib
+
+# template = Template(Path("Mail/mail.html").read_text())
+# message = MIMEMultipart()
+# message["from"] = "Nick Gotsy"
+# message["to"] = "nick.gotsy@gmail.com"
+# message["subject"] = "Hey there, it's Nick!"
+# body = template.substitute({"name": "Niko"})
+# message.attach(MIMEText(body, "html"))
+# message.attach(MIMEImage(Path("Dice.png").read_bytes()))
+
+# with smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
+#     smtp.ehlo()
+#     smtp.starttls()
+#     smtp.login("nick.gotsy@gmail.com", "tfjmulhjqswnzzbz")
+#     smtp.send_message(message)
+#     print("Sent...")
+
+#  -----
+#  Commmand-line Arguments
+#  -----
+
+# # Goal = allowing user to create a password
+
+# import sys
+# # print(sys.argv)
+
+# # There's always at least 1 argument when putting in "app.py"
+# if len(sys.argv) == 1:
+#     print("USAGE: python3 app.py <password>")
+# # If app.py is followed by something, that something = will become a password (e.g. python app.py 1234 = password is now 1234)
+# else:
+#     password = sys.argv[1]
+#     print("Password", password)
+
+
+# -----
+# Running Operating/External Programs
+# -----
+
+# # Goal = python script that executes another python script
+
+# import sys
+# import subprocess
+
+# run = subprocess.Popen([sys.executable, "ecommerce/sales.py"])
+# run.communicate()
