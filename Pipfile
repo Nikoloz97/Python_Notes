@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 requests = "*"
+nikusha5pdf = {path = "./nikusha5pdf"}
+nickpdf = {path = "./nickpdf"}
 
 [dev-packages]
 

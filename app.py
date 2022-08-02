@@ -1239,7 +1239,7 @@
 # Sending Emails
 # ----
 
-# # If you experience issues, it comes from the format of the HTML file. So play around with the lines python arises as issues
+# # If you experience issues, it comes from the format of the HTML file. So play around with the lines python arises in problem section
 
 # # Allows to send email in both HTML and plain form (if HTML not supported)...
 # from email.mime.multipart import MIMEMultipart
@@ -1247,7 +1247,7 @@
 # from email.mime.text import MIMEText
 # # Import image...
 # from email.mime.image import MIMEImage
-# # Create a path to image...
+# # Create a path to images...
 # from pathlib import Path
 # # Create an HTML template...
 # from string import Template
@@ -1258,16 +1258,16 @@
 # template = Template(Path("mail.html").read_text())
 
 # message = MIMEMultipart()
-# # Set headers supported by MIMEMultipart (e.g. from, to , subject)
+# # Set headers supported by MIMEMultipart (e.g. from, to, subject)
 # message["from"] = "Nick Gotsy"
 # message["to"] = "nick.gotsy@gmail.com"
-# message["subject"] = "Hey there, it's Nick!"
+# message["subject"] = "Meth Dealer?"
 # # Substitute method = allows for dynamic parameters (in html doc, used $name)
 # body = template.substitute({"name": "Niko"})
-# # Body not supported by MIMEMultipart. So need to attach it (via attach method)
+# # Body section not supported by MIMEMultipart, so need to "attach" it
 # message.attach(MIMEText(body, "html"))
-# # method read_bytes = returns data in binary
-# message.attach(MIMEImage(Path("Dice.png").read_bytes()))
+# # read_bytes = returns data in binary form (makes image readable)
+# message.attach(MIMEImage(Path("Jesse and Walter.jpg").read_bytes()))
 
 # # To connect with SMTP server, call the module with class SMTP
 # # Once done with it, need to close it - so use a with statement
@@ -1296,17 +1296,18 @@
 # message = MIMEMultipart()
 # message["from"] = "Nick Gotsy"
 # message["to"] = "nick.gotsy@gmail.com"
-# message["subject"] = "Hey there, it's Nick!"
+# message["subject"] = "Meth Dealer?"
 # body = template.substitute({"name": "Niko"})
 # message.attach(MIMEText(body, "html"))
-# message.attach(MIMEImage(Path("Dice.png").read_bytes()))
+# message.attach(MIMEImage(Path("Jesse and Walter.jpg").read_bytes()))
 
 # with smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
 #     smtp.ehlo()
 #     smtp.starttls()
 #     smtp.login("nick.gotsy@gmail.com", "tfjmulhjqswnzzbz")
 #     smtp.send_message(message)
-#     print("Sent...")
+#     print("Message Sent!")
+
 
 #  -----
 #  Commmand-line Arguments
@@ -1336,8 +1337,3 @@
 
 # run = subprocess.Popen([sys.executable, "ecommerce/sales.py"])
 # run.communicate()
-
-
-from nickpdf import pdf2text
-
-pdf2text.convert()
