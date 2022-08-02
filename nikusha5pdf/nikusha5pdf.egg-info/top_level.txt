@@ -1,5 +1,0 @@
-Data
-Tests
-build
-dist
-nikusha5pdf
