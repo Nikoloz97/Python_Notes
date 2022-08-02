@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+Nickpdf/__init__.py
+Nickpdf/pdf2image.py
+Nickpdf/pdf2text.py
+nickpdf.egg-info/PKG-INFO
+nickpdf.egg-info/SOURCES.txt
+nickpdf.egg-info/dependency_links.txt
+nickpdf.egg-info/top_level.txt

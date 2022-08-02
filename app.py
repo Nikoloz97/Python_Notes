@@ -1,22 +1,22 @@
-# PrimitiveType = 'Numbers' or 'Booleans' or 'Strings'
-# print(bool(PrimitiveType == "Strings"))
-# ???
-# --------------------------------------------------
-
 # -----
 # Methods
 # -----
 
+# Strip method = removes unwanted spaces ("white" spaces)
+# Find method = locates string (returns index of first instance)
+
 # MyName = "      Nick Gotsy"
 # MyNameStripped = MyName.strip()
-# print(MyNameStripped.find("Nick"))
+# print(MyNameStripped)
+# print(MyNameStripped.find("Gotsy"))
 
 # -----
 # String Slicing
 # -----
 
 # Nick = 'Knows english and georgian '
-# print(f"Nick knows {Nick[6:13]}/\"{Nick[-9:-1]}\"... \nHe's Bilingual")
+# print(f"Nick knows {Nick[6:13]}/\"{Nick[-9:-1]}\"...\nHe's Bilingual")
+
 
 # ----
 # "Concatination" = linking variables together
@@ -35,20 +35,26 @@
 # Maria += 6
 # print(f"If Maria was 6 years older, she would be {Maria}")
 
-
 # -----
-# Input function = used for when user puts in the value (lines 49-51 = concatinating input values)
+# Input function = user inputs the value
 # -----
 
-# CountryName = input("Country Name: ")
-# YearFounding = input(f"\"{CountryName}\" was founded in the year: ")
-# Statement = f"The country of {CountryName} was founded in {int(YearFounding)}"
-# print(Statement)
+# while True:
+#     CountryName = input("Country Name: ")
+#     # break statement needs to go directly in the line below the variable in reference (CountryName)
+#     if CountryName.lower() == "quit":
+#         break
+#     YearFounding = input(f"\"{CountryName}\" was founded in the year: ")
+#     Statement = f"The country of {CountryName} was founded in {int(YearFounding)}"
+#     print(Statement)
 
+
+# # Below = "Concatinating" input values
 
 # Variable_1 = input("What is x?: ")
 # Variable_2 = int(Variable_1) + 1
 # print(f"x: {Variable_1}, y: {Variable_2}")
+
 
 # -----
 # Input function (+ if statements)
@@ -61,7 +67,6 @@
 #     print("It's nice outside")
 # else:
 #     print("It's cold outside")
-
 
 # -----
 # If statement (default for if-then statements = true)
@@ -83,34 +88,38 @@
 # # else:
 # #     print("Not eligible")
 
-# # Instead of lines 81-84...
+# # Below = simplified version...
 # EligibilityMessage = "Eligible" if age >= 18 else "Not eligible"
+
+# print(EligibilityMessage)
+
 # # Known as "chaining comparison operators"
 
+# -----
+# For Loop = used to iterate arguments in a function
+# -----
 
-# -----
-# For Loop
-# -----
+# Goal = create a loading screen
 
 # for number in range(1, 3, 1):
 #     print("Attempting", number * ".")
 # for number in range(3, 0, -1):
 #     print("Attempting", number * ".")
 
-
 # -----
-# Break statement
+# Break statement = used to get out a loop (once a condition is met)
 # -----
 
-# successful = False
-# for number in range(3):
-#     print("Attempt")
-#     if successful:
+# for number in range(5):
+#     successful = number
+#     print("Attempt", number)
+#     if successful == 2:
 #         print("Successful")
 #         break
-#     else:
-#         print("Attempted 3 times and failed")
+# else:
+#     print("Attempted 5 times and failed")
 
+# Comment out the break statement and see how that changes the return
 # -----
 # Nested Loops = Bigger loop and smaller loop
 # -----
@@ -134,7 +143,6 @@
 
 # ShoppingCart = ["Tacos", "Beans", "Ravioli", "Chicken", "Chickpeas"]
 # print(list(enumerate(ShoppingCart)))
-
 
 # -----
 # While Loops
@@ -164,7 +172,6 @@
 #         age = int(input("Age: "))
 #         print(f"Your age is {age}")
 
-
 # ----
 # Infinite Loops = starts off with "while True" and ends with a "break". Don't need to initialize variable
 # ----
@@ -179,7 +186,6 @@
 # Even numbers exercise
 # -----
 
-
 # count = 0
 # for number in range(1, 10):
 #     if number % 2 == 0:
@@ -192,13 +198,10 @@
 # Defining Functions
 # -----
 
-
 # def increment(number, by):
 #     return number + by
 
-
 # print(increment(2, 1))
-
 
 # # ---------
 
@@ -208,7 +211,6 @@
 #     print(f"Hey there {FirstName} {LastName} \n Welcome Aboard!")
 # greet("", "")
 
-
 # ------
 # For-in + *Args (variable arguments)
 # ------
@@ -217,7 +219,6 @@
 #     for number in numbers:
 #         print(number*numbers)
 
-
 # ValueList(5, 10, 6, 3, 2)
 
 # ----------------
@@ -225,7 +226,6 @@
 # def ShoppingList(*__words):
 #     for word in __words:
 #         print(word)
-
 
 # ShoppingList("Oranges", "Broccoli", "Grapes", "Beans", "Tortilla wraps")
 # ShoppingList("Apple", "Carrots", "Raspberry", "Chickpeas", "Taco shells")
@@ -238,24 +238,18 @@
 # def userInfo(**Info):
 #     print(Info["age"])
 
-
 # userInfo(accountID=15423, firstName="Nick", lastName="Gotsy", age=23)
-
 
 # --------
 
-
 # def GroceryList(**WholeList):
 #     print(WholeList)
-
 
 # GroceryList(Expensive="Computer",
 #             notExpensive="basketball",
 #             cheap="Paper clips")
 
-
 # ---------
-
 
 # def GroceryList(**WholeList):
 #     print(WholeList["Expensive"])
@@ -264,7 +258,6 @@
 #             notExpensive="basketball",
 #             cheap="Paper clips")
 
-
 # -----
 # Global variables = take precedence over other variables of same name (even if local)
 # -----
@@ -272,34 +265,27 @@
 # # Below: letters = global variable
 # letters = "goodbye"
 
-
 # def greet(name):
 #     # Letters here = local variable
 #     for letters in name:
 #         print(letters)
 
-
 # greet("Nick")
 # print(letters)
-
 
 # # For-in loop using a number array...
 
 # NumberArray = [0, 2, 4, 6, 8, 10]
 
-
 # def Listout(items):
 #     for eachitem in items:
 #         print(eachitem)
 
-
 # Listout(NumberArray)
-
 
 # -------
 # FizzBuzz Project (If + return statements)
 # -------
-
 
 # # Solution 1
 
@@ -311,7 +297,6 @@
 # if Number % 5 == 0:
 #     print("Buzz")
 
-
 # Solution 2
 
 # def fizz_buzz(input):
@@ -321,7 +306,6 @@
 #         return "Fizz"
 #     if input % 5 == 0:
 #         return "Buzz"
-
 
 # print(fizz_buzz(15))
 
@@ -333,7 +317,6 @@
 # numbers[1] = 69
 # print(numbers)
 
-
 # -----
 # Unpacking Lists - to extract certain items, prefix a variable with: *
 # -----
@@ -342,7 +325,6 @@
 #              "Macaroni", "Tacos", "Hamburgers"]
 # fruit1, fruit2, vegetable, *others = Groceries
 # print(*others)
-
 
 # -----
 # Indexing lists (creating topples)
@@ -368,7 +350,6 @@
 # GroceryList.pop(2)
 # print(GroceryList)
 
-
 # -----
 # Sorting Tuples
 # -----
@@ -380,10 +361,8 @@
 #     ("tires", 30)
 # ]
 
-
 # def basedOnPrice(partsAndPrice):
 #     return partsAndPrice[1]
-
 
 # partPrices.sort(key=basedOnPrice)
 # print(items)
@@ -395,14 +374,11 @@
 #     ("tires", 30)
 # ]
 
-
 # def SortingBasedOnPrice(items):
 #     return items[1]
 
-
 # PartPrices.sort(key=SortingBasedOnPrice)
 # print(PartPrices)
-
 
 # -----
 # Lambda function = shortens line of code in sorting tuples (from last lesson)
@@ -448,9 +424,7 @@
 # for price in price_list:
 #     print(price)
 
-
 # below = same, but uses list function (no for-in loop needed)
-
 
 # fruitAndPrices = [
 #     ("apples", 20),
@@ -460,7 +434,6 @@
 
 # price_list = list(map(lambda fruitPrice: fruitPrice[1], fruitAndPrices))
 # print(price_list)
-
 
 # ----
 # Filtering Lists = taking out touples with a certain value
@@ -473,7 +446,6 @@
 #     ("Glasses", 60),
 #     ("Socks", 5),
 # ]
-
 
 # filtered_list = list(filter(lambda product: product[1] >= 10, ProductAndPrice))
 # print(filtered_list)
@@ -504,7 +476,6 @@
 #     groceryItem for groceryItem in groceryItems if groceryItem[1] > 6]
 # print(groceryPricesOver6Dollars)
 
-
 # -----
 # Zip function = used to combine lists (in a way that first items of each lists now become their own list, second items their own, and so on)
 # -----
@@ -513,7 +484,6 @@
 # list2 = "abc"
 
 # print(list(zip([12, 15, 16], "HEY", list1, list2)))
-
 
 # -----
 # Changing variables
@@ -539,7 +509,6 @@
 
 # print(a, b, c)
 
-
 # -----
 # Dictionary (key-value pairs) - looping over dictionaries uses method: .items
 # -----
@@ -551,7 +520,6 @@
 
 # for names, numbers in phoneBook.items():
 #     print(names,numbers)
-
 
 # # item name = associates with key, variable[key] = value
 # # Version below it = same result (little longer, but makes more sense)
@@ -570,11 +538,9 @@
 # listDivisibleBy3 = [number * 3 for number in range(5)]
 # print(listDivisibleBy3)
 
-
 # -----
 # Generator objects = helps reduce amount of memory taken from large lists (e.g. random number generator)
 # -----
-
 
 # from sys import getsizeof
 
@@ -605,14 +571,12 @@
 
 # # However, below (unpacking combinations, will work - very weird why its limited to that)
 
-
 # peopleCleveland = {"John": 440_596_9476,
 #                    "Terry": 555_555_5555, "Ricky": 314_157_9514}
 # peopleCincinnati = {"John": 777_777_7777, "Jerimiah": 222_222_2222}
 
 # combinedBooks = {**peopleCleveland, **peopleCincinnati, "Jacob": 666_666_6666}
 # print(combinedBooks)
-
 
 # -----
 # Exercise = develop program that determines most repeated character in a sentence
@@ -625,7 +589,6 @@
 # ... sort based on the value (reverseTrue = descending order)
 # 4. Print out the first tuple (highest value)
 
-
 # sentence = "Hello there, my name is nick"
 # char_frequency = {}
 # for char in sentence:
@@ -637,13 +600,11 @@
 #                        key=lambda kv: kv[1], reverse=True)
 # print(characterList[0])
 
-
 # -----
 # Handling Exceptions = "try" clause - creates friendly error messages (prevents crashing)
 # -----
 
 # Goal = for an age input system, \if no value is put in, system tells you to try again. If value = 0, terminates system.
-
 
 # age = ""
 # while age != 0:
@@ -657,7 +618,6 @@
 #         else:
 #             print(f"Processed! You have updated your age to: {age}!")
 
-
 # -----
 # Raising Exceptions = adding exceptions to default error message (I.e. making it more picky - not commonly used since it slows the system)
 # -----
@@ -666,12 +626,10 @@
 #     if number < 0:
 #         raise ValueError("You cannot have a negative number...")
 
-
 # try:
 #     how_many_burgers_did_you_have(-5)
 # except ValueError as you_cant_eat_negative_burgers:
 #     print(you_cant_eat_negative_burgers)
-
 
 # Below = more efficient version
 
@@ -679,13 +637,11 @@
 #     if number < 0:
 #         return None
 
-
 # Burgers = how_many_burgers_did_you_have(-5)
 # if Burgers == None:
 #     pass
 
 # Main takeaway = avoid raising exceptions. See if it can alternatively be handled by an if-statement first
-
 
 # -----
 # Constructor = sets initial values for an object. Uses magic method called "__init__"
@@ -707,7 +663,6 @@
 # Nick = PoundsInches(150, 69)
 # Nick.WeightHeight()
 
-
 # # Below = another example
 
 # class GradeAttendance:
@@ -719,16 +674,13 @@
 #         print(
 #             f"Jerry scored {self.Grade}% on average on his exams, while attending class {self.Attendance}% of the time")
 
-
 # Jerry = GradeAttendance(95, 75)
 # Jerry.PersonGradeAttendance()
 # print(Jerry.Attendance)
 
-
 # -----
 # Magic methods = used to modify an object(e.g. into a string)
 # -----
-
 
 # class CalSpice:
 #     def __init__(self, calories, spicyness):
@@ -737,7 +689,6 @@
 
 #     def __str__(self):
 #         return f"({self.calories}, {self.spicyness})"
-
 
 # ChickenTaco = CalSpice(400, 3)
 # print(ChickenTaco)
@@ -756,11 +707,9 @@
 #     def __eq__(self, other):
 #         return self.calories == other.calories and self.spicyness == other.spicyness
 
-
 # ChickenTaco = CalSpice(400, 3)
 # BeefBurrito = CalSpice(600, 7)
 # print(ChickenTaco == BeefBurrito)
-
 
 # class CalSpice:
 #     def __init__(self, calories, spicyness):
@@ -769,7 +718,6 @@
 
 #     def __gt__(self, other):
 #         return self.calories > other.calories and self.spicyness > other.spicyness
-
 
 # ChickenTaco = CalSpice(400, 3)
 # BeefBurrito = CalSpice(600, 7)
@@ -780,7 +728,6 @@
 # -----
 # Arithmetic between objects (e.g. adding, subtracting)
 # -----
-
 
 # class CalSpice:
 #     def __init__(self, calories, spicyness):
@@ -793,16 +740,13 @@
 #     def __str__(self):
 #         return f"({self.calories}, {self.spicyness})"
 
-
 # ChickenTaco = CalSpice(400, 3)
 # BeefBurrito = CalSpice(600, 7)
 # CombinedMeal = ChickenTaco + BeefBurrito
 # print(CombinedMeal)
 # print(CombinedMeal.calories)
 
-
 # __str__ magic method = makes the return for "CombinedMeal" possible (otherwise returns random location in memory the variable is stored)
-
 
 # -----
 # Making a custom container (lists, sets, dictionaries = all examples of containers)
@@ -832,7 +776,6 @@
 #     def __getitem__(self, word):
 #         return self.__words.get(word.lower(), 0)
 
-
 # WordSearcher = HowMuchThisWordIsFound()
 # WordSearcher["python"] = 10
 # WordSearcher.add("Python")
@@ -840,7 +783,6 @@
 # WordSearcher.add("pYtHoN")
 # print(WordSearcher.__words)
 # print(WordSearcher["python"])
-
 
 #  -----
 #  Private Members = used to access "underlying dictionary" (i.e. words) in which the attribute/method is made private (by underscores)
@@ -860,7 +802,6 @@
 
 #     def __getitem__(self, word):
 #         return self.__words.get(word.lower(), 0)
-
 
 # WordSearcher = HowMuchThisWordIsFound()
 # WordSearcher.add("Python")
@@ -892,13 +833,10 @@
 
 # # Test Run...
 
-
 # CartTotal = AmazonCartTotalPrice(-50)
-
 
 # # Below = using same code as above, but now, using properties (more "pythonic")
 # # Goal = Don't wan't amazon total cart price to be a negative number
-
 
 # class AmazonCartTotalPrice:
 #     # Step 1 = create constructor
@@ -920,15 +858,12 @@
 #     # ... Otherwise, return that value(
 #         self.__summaryTotal = value
 
-
 # # Test Run...
-
 
 # CartTotal = AmazonCartTotalPrice(10)
 # print(CartTotal.summaryTotal)
 # CartTotal.summaryTotal = -1
 # print(CartTotal.summaryTotal)
-
 
 # # Below = without comments
 
@@ -946,26 +881,22 @@
 #             raise ValueError("Price cannot be a negative value")
 #         self.__summaryTotal = value
 
-
 #  -----
 #  Method Overriding: if methods are used to allow for parent method to be inherited to child (e.g. if both initialized to something)
 #  -----
 # # Below, methods size and weight = initialized
 # # To override, use function: super
 
-
 # class Animal:
 #     def __init__(self):
 #         print("It's an animal")
 #         self.size = "bigger than an insect"
-
 
 # class Mammal(Animal):
 #     def __init__(self):
 #         super().__init__()
 #         print("Does not lay eggs")
 #         self.weight = "weighs more than an insect"
-
 
 # Zebra = Mammal()
 # print(Zebra.size)
@@ -974,12 +905,10 @@
 # # Notice the order in which the return is given (flip-flop between the two print statements above)
 # # Can change this order by changing the line in which the super function is called
 
-
 # class Animal:
 #     def __init__(self):
 #         print("It's an animal")
 #         self.size = "bigger than an insect"
-
 
 # class Mammal(Animal):
 #     def __init__(self):
@@ -988,11 +917,9 @@
 #         # Now, super function is on the bottom. The print statement directly above gets called first, then the rest
 #         super().__init__()
 
-
 # Zebra = Mammal()
 # print(Zebra.size)
 # # print(Zebra.weight)
-
 
 # -----
 # Good example of Inheritance
@@ -1003,10 +930,8 @@
 
 # from abc import ABC, abstractmethod
 
-
 # class InvalidOperationError (Exception):
 #     pass
-
 
 # class Stream:
 #     # Initialize an "open flag" (telling you when the application is opened)
@@ -1033,11 +958,9 @@
 #     def read(self):
 #         print("Reading data from a file")
 
-
 # class NetworkStream (Stream):
 #     def read(self):
 #         print("Reading data from a network")
-
 
 # ----
 #  Polymorphisms
@@ -1045,11 +968,9 @@
 # Can be used to "render" the user-interface (UI) of an application
 # Objective = Have a form that contains a dropdown list and textbox. Want to pass that to a function called "draw()" that renders both of them at once
 
-
 # from abc import ABC, abstractmethod
 
 # # Create an abstract base class
-
 
 # class UIControl(ABC):
 #     @abstractmethod
@@ -1058,11 +979,9 @@
 
 # # Create textbox and dropdownlist classes (become children of the abstract class)
 
-
 # class TextBox(UIControl):
 #     def draw(self):
 #         print("This is the content of the textbox")
-
 
 # class DropDownList(UIControl):
 #     def draw(self):
@@ -1070,20 +989,16 @@
 
 # # Create draw() function. Make it iterable (so that it extracts textbox + dropdownlist))
 
-
 # def draw(Everything):
 #     for eachthing in Everything:
 #         eachthing.draw()
-
 
 # ddl = DropDownList()
 # textbox = TextBox()
 # draw([ddl, textbox])
 
-
 # Called "Polymorphism" since draw() function here takes on many forms (i.e. can take on textbox + dropdown list in this scenario, and...
 # ... maybe radio lists, checkboxes, description lists in another)
-
 
 # ----
 # Extending Built-in Types = using inheritance on classes that come Built-in on python
@@ -1097,7 +1012,6 @@
 #         print("Something was added!")
 #         # Call the append method of the base ("super") class
 #         super().append(object)
-
 
 # Mylist = MyNumberList()
 # Mylist.append("1")
@@ -1120,7 +1034,6 @@
 # print(GroceryList_1 == GroceryList_2)
 
 # # Requires less code than eq magic method. But downside = "immutable" (we cannot alter any of these grocery lists)
-
 
 # -----
 # Package = a "subdirectory" (sub-folder) with multiple files
@@ -1156,7 +1069,6 @@
 # # path.unlink()
 # # path.stat()
 
-
 # ----
 # Copying Files = uses "shell utilities" (shutil)
 # ----
@@ -1164,13 +1076,11 @@
 # from pathlib import Path
 # import shutil
 
-
 # source = Path("ecommerce/__init__.py")
 # target = Path() / "__init__.py"
 # shutil.copy(source, target)
 
 # # When you run it, creates another __init__.py file (that's not in a directory - but can always make it one)
-
 
 # ----
 # Zip file (Part 1)
@@ -1180,7 +1090,6 @@
 
 # from pathlib import Path
 # from zipfile import ZipFile
-
 
 # # "w" = writes to zip file (i.e. stores everything into it)
 # # In case something goes wrong, "with" statement prevents error (better replacement than a close method (below))
@@ -1194,13 +1103,11 @@
 # # Keep  line below in a comment (just demonstrates with-as statement = doesn't need a close statement)
 # # zip.close()
 
-
 # -----
 # Zip File (Part 2)
 # -----
 
 # Goal = Extract the Zip file created (for modifying/reading)
-
 
 # from pathlib import Path
 # from zipfile import ZipFile
@@ -1212,13 +1119,11 @@
 #     # Extractall function = extracts the content of each file name in zip into a directory created called "Extracted_Zip_File"
 #     zip.extractall("Extracted_Zip_File")
 
-
 # ----
 # Working with JSON (part 1)
 # ----
 
 # Goal = create an array of dictionaries, and "write it" to a file
-
 
 # import json
 # from pathlib import Path
@@ -1232,7 +1137,6 @@
 # Path("movies.json").write_text(MoviesList)
 
 # # Here, created an array of dictionaries to begin with - so JSON didn't do any conversion. Not always the case (esp if diff language)
-
 
 # ----
 # Working with JSON (part 2)
@@ -1248,7 +1152,6 @@
 # # Can extract whats needed from the dictionary using square brackets
 # print(Movies[0]["title"])
 
-
 # ----
 # Working with SQL Database (Part 1) - Creating a table
 # ----
@@ -1258,7 +1161,6 @@
 # import sqlite3
 # import json
 # from pathlib import Path
-
 
 # # Assign list of movies to a variable
 # # read_text function = loads all content as a string
@@ -1278,7 +1180,6 @@
 #     # Create commit method
 #     connection.commit()
 
-
 # ----
 # Working with SQL Database (Part 2) - Reading a table
 # ----
@@ -1289,7 +1190,6 @@
 # import json
 # from pathlib import Path
 
-
 # with sqlite3.connect("TheMoviesDatabase.sqlite3") as connection:
 #     command = "SELECT * FROM Movies"
 #     cursor = connection.execute(command)
@@ -1297,7 +1197,6 @@
 #     # fetchall = returns all columns at once
 #     movies = cursor.fetchall()
 #     print(movies)
-
 
 # -----
 # Timestamps = used to track the time of something
@@ -1307,18 +1206,15 @@
 
 # import time
 
-
 # def send_emails():
 #     for i in range(10000):
 #         pass
-
 
 # start = time.time()
 # send_emails()
 # end = time.time()
 # duration = end - start
 # print(duration)
-
 
 # -----
 # Generating Random Values
@@ -1358,7 +1254,6 @@
 # # Send message through an SMTP server...
 # import smtplib
 
-
 # # Create an HTML template. read_text = returns content as a string
 # template = Template(Path("mail.html").read_text())
 
@@ -1374,7 +1269,6 @@
 # # method read_bytes = returns data in binary
 # message.attach(MIMEImage(Path("Dice.png").read_bytes()))
 
-
 # # To connect with SMTP server, call the module with class SMTP
 # # Once done with it, need to close it - so use a with statement
 # with smtplib.SMTP(host="smtp.gmail.com", port=587) as smtp:
@@ -1389,9 +1283,7 @@
 #     # For confirmation things went through...
 #     print("Sent...")
 
-
 # # Below = non-comment version
-
 
 # from email.mime.multipart import MIMEMultipart
 # from email.mime.text import MIMEText
@@ -1433,7 +1325,6 @@
 #     password = sys.argv[1]
 #     print("Password", password)
 
-
 # -----
 # Running Operating/External Programs
 # -----
@@ -1445,3 +1336,8 @@
 
 # run = subprocess.Popen([sys.executable, "ecommerce/sales.py"])
 # run.communicate()
+
+
+from nickpdf import pdf2text
+
+pdf2text.convert()
