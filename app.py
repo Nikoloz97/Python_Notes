@@ -138,11 +138,15 @@
 # for x in "NickGotsy":
 #     print(x)
 
+## Start, stop, increment
 # for x in range(2, 5, 1):
 #     print(x)
 
 # ShoppingCart = ["Tacos", "Beans", "Ravioli", "Chicken", "Chickpeas"]
+# # enumerate = indexes the list
 # print(list(enumerate(ShoppingCart)))
+# print(ShoppingCart[1])
+
 
 # -----
 # While Loops
@@ -350,6 +354,20 @@
 # GroceryList.pop(2)
 # print(GroceryList)
 
+
+# Below = sorting alphabetically using split method
+
+# GroceryItems = ["Tacos", "Enchiladas", "Carrots", "Cinammon sticks"]
+# print(sorted("Tacos, Enchiladas, Carrots, Cinammon-sticks".split(), key=str.lower))
+
+
+# # Downside of split = cannot store in a list variable
+# # Below = sorting alphabetically using tuples
+
+# GroceryItems_tuple = [("Tacos", 3), ("Enchiladas", 70),
+#                       ("Carrots", 20), ("Cinammon sticks", 5)]
+# print(sorted(GroceryItems_tuple, key=lambda GroceryItem: GroceryItem[0]))
+
 # -----
 # Sorting Tuples
 # -----
@@ -361,24 +379,14 @@
 #     ("tires", 30)
 # ]
 
+
 # def basedOnPrice(partsAndPrice):
 #     return partsAndPrice[1]
 
+
 # partPrices.sort(key=basedOnPrice)
-# print(items)
+# print(partPrices)
 
-# PartPrices = [
-#     ("muffler", 50),
-#     ("hood", 10),
-#     ("engine", 80),
-#     ("tires", 30)
-# ]
-
-# def SortingBasedOnPrice(items):
-#     return items[1]
-
-# PartPrices.sort(key=SortingBasedOnPrice)
-# print(PartPrices)
 
 # -----
 # Lambda function = shortens line of code in sorting tuples (from last lesson)
@@ -1180,6 +1188,7 @@
 #     # Create commit method
 #     connection.commit()
 
+
 # ----
 # Working with SQL Database (Part 2) - Reading a table
 # ----
@@ -1202,19 +1211,25 @@
 # Timestamps = used to track the time of something
 # -----
 
-# # Goal = figure out how long it took to "send" 10,000 emails
+# # Goal = figure out how long it took to "send" 1,000,000 emails
 
 # import time
 
+
 # def send_emails():
-#     for i in range(10000):
+#     for i in range(1_000_000):
 #         pass
 
+
+# # Mark the time before the action
 # start = time.time()
+# # Commit the action
 # send_emails()
+# # Mark the time after the action
 # end = time.time()
 # duration = end - start
 # print(duration)
+
 
 # -----
 # Generating Random Values
@@ -1318,19 +1333,20 @@
 # import sys
 # # print(sys.argv)
 
-# # There's always at least 1 argument when putting in "app.py"
+# # There's always needs to be at least 1 argument when putting in "app.py"
 # if len(sys.argv) == 1:
 #     print("USAGE: python3 app.py <password>")
-# # If app.py is followed by something, that something = will become a password (e.g. python app.py 1234 = password is now 1234)
+# # In terminal, when app.py is followed by something, that will become the password (e.g. python app.py 1234 = password is now 1234)
 # else:
 #     password = sys.argv[1]
 #     print("Password", password)
+
 
 # -----
 # Running Operating/External Programs
 # -----
 
-# # Goal = python script that executes another python script
+# Goal = python script that executes another python script
 
 # import sys
 # import subprocess
