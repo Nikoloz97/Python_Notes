@@ -368,6 +368,7 @@
 #                       ("Carrots", 20), ("Cinammon sticks", 5)]
 # print(sorted(GroceryItems_tuple, key=lambda GroceryItem: GroceryItem[0]))
 
+
 # -----
 # Sorting Tuples
 # -----
@@ -1340,8 +1341,6 @@
 # else:
 #     password = sys.argv[1]
 #     print("Password", password)
-
-
 # -----
 # Running Operating/External Programs
 # -----
@@ -1353,3 +1352,102 @@
 
 # run = subprocess.Popen([sys.executable, "ecommerce/sales.py"])
 # run.communicate()
+
+# -----
+# Format method
+# ----
+
+# # Goal = Embed John's age into an age sentence
+
+# John_age = 36
+# Age_sentence = "My name is John, and I am {}"
+# print(Age_sentence.format(John_age))
+
+# -----
+# In operator
+# -----
+
+# # Goal = check if item is in the grocery list
+
+# Grocery_list = ["apple", "banana", "tacos"]
+# if "tacos" in Grocery_list:
+#     print("We need tacos!")
+
+# ----
+# Continue clause = used to alter an iteration
+# ----
+
+# # Goal = instead of printing "i" for 3, say "tres"
+
+# i = 0
+# while i < 6:
+#     i += 1
+#     if i == 3:
+#         print("tres")
+#         continue
+#     print(i)
+
+# -----
+# __init__ function = used to define a function in a class
+# -----
+
+# # Goal = Nick is an object of the person class. Create a way in which Nick.lastname = gives you his last name
+
+
+# class Person:
+#     def __init__(self, fname, lname, age):
+#         self.first_name = fname
+#         self.last_name = lname
+#         self.age = age
+
+
+# Nick = Person("Nickolaus", "Gotsiridze", 23)
+
+# print(Nick.last_name)
+
+
+# ----
+# Inheritance
+# ----
+
+# # Follow through code to explain to yourself why the return is so (starting from x.printname())
+
+# class Person:
+#     def __init__(self, fname):
+#         self.firstname = fname
+
+#     def printname(self):
+#         print(self.firstname)
+
+
+# # Below = just to make Student class inherit Person
+# class Student(Person):
+#     pass
+
+
+# x = Student("Mike")
+
+# x.printname()
+
+
+# -----
+# JSON = basically a python dictionary (but the whole thing is surrounded by string quotes)
+# -----
+
+# # Loads function = converts JSON -> Python dict
+
+# import json
+
+# # x = JSON
+# x = '{"name": "John", "age": 30, "city": "NYC"}'
+# y = json.loads(x)
+# # Below: return = python dictionary
+# print(y["age"])
+
+
+# # Dumps function = converts Python dict -> JSON
+
+# x = {"name": "John", "age": 30, "city": "NYC"}
+# y = json.dumps(x)
+# # Below: return = JSON string
+# print(y)
