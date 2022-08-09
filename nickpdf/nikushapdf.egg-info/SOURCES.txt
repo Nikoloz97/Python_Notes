@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+Nikushapdf/__init__.py
+Nikushapdf/pdf2image.py
+Nikushapdf/pdf2text.py
+nikushapdf.egg-info/PKG-INFO
+nikushapdf.egg-info/SOURCES.txt
+nikushapdf.egg-info/dependency_links.txt
+nikushapdf.egg-info/top_level.txt

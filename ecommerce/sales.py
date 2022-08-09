@@ -7,3 +7,4 @@ def calc_shipping():
 
 
 print("Sales initialized", __name__)
+print("Hey there, how's it going??")
