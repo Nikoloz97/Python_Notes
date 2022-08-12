@@ -291,17 +291,33 @@
 # FizzBuzz Project (If + return statements)
 # -------
 
-# # Solution 1
+# Goal = machine where input number and if - divisible by 3 = fizz, by 5 = buzz, by 5 and 3 = fizbuzz
+
+# Solution 1
 
 # Number = int(input("Choose a number: "))
 # if (Number % 5 == 0) and (Number % 3 == 0):
 #     print("Fizz Buzz")
-# if Number % 3 == 0:
+# elif Number % 3 == 0:
 #     print("Fizz")
-# if Number % 5 == 0:
+# elif Number % 5 == 0:
 #     print("Buzz")
 
-# Solution 2
+
+# Below = Solution 1 looped
+
+# Number = int(input("Choose a number: "))
+# while Number != 0:
+#     if (Number % 5 == 0) and (Number % 3 == 0):
+#         print("Fizz Buzz")
+#     elif Number % 3 == 0:
+#         print("Fizz")
+#     elif Number % 5 == 0:
+#         print("Buzz")
+#     Number = int(input("Choose a number: "))
+
+
+# Solution 2 = creating a fizz_buzz function
 
 # def fizz_buzz(input):
 #     if (input % 5 == 0) and (input % 3 == 0):
@@ -311,7 +327,9 @@
 #     if input % 5 == 0:
 #         return "Buzz"
 
-# print(fizz_buzz(15))
+
+# print(fizz_buzz(5))
+
 
 # -----
 # List + range functions. Range = lists out 0 -> n-1
@@ -320,6 +338,7 @@
 # numbers = list(range(20))
 # numbers[1] = 69
 # print(numbers)
+
 
 # -----
 # Unpacking Lists - to extract certain items, prefix a variable with: *
@@ -331,42 +350,49 @@
 # print(*others)
 
 # -----
-# Indexing lists (creating topples)
+# Indexing lists - enumerating = listing things out one by one
 # -----
 
+# Enumerate function = allows tuple to be placed in a loop
+
 # ToDoList = ["By some books", "Sell stuff online", "Learn Python"]
-# for index, ToDo in enumerate(ToDoList):
-#     print(index, ToDo)
+# for ListItem in enumerate(ToDoList):
+#     print(ListItem)
+#     print(ListItem[1])
 
 # -----
 # Adding/removing items from list
 # -----
 
-# # Below = Adding item (method = .insert)
+# # Below = Adding item (.insert)
 
 # GroceryItems = ["Tacos", "Enchiladas", "Carrots", "Cinammon sticks"]
 # GroceryItems.insert(1, "Salsa")
 # print(GroceryItems)
 
-# # Below = Removing item (can also use: .remove (insert item, no index here), and to remove whole list, .clear())
+
+# Below = Removing item (can also use: .remove (type in the string item), and to remove whole list, .clear())
 
 # GroceryList = ["Apples", "Bananas", "Bananas", "Bananas", "Broccoli"]
 # GroceryList.pop(2)
 # print(GroceryList)
 
 
-# Below = sorting alphabetically using split method
+# Below = sorting alphabetically using split
+# Key and reverse parameters = optional (reverse = sorts descending)
 
-# GroceryItems = ["Tacos", "Enchiladas", "Carrots", "Cinammon sticks"]
-# print(sorted("Tacos, Enchiladas, Carrots, Cinammon-sticks".split(), key=str.lower))
+# GroceryItems = ["Tacos", "Enchiladas", "Carrots", "Cinammon-sticks"]
+# print(sorted("Tacos, Enchiladas, Carrots, Cinammon-sticks".split(),
+#       key=str.lower, reverse=True))
 
 
-# # Downside of split = cannot store in a list variable
+# # Downside of split = cannot store in a list variable (if so, has to be converted to string - str(GroceryItems) - which doesn't look nice)
 # # Below = sorting alphabetically using tuples
 
 # GroceryItems_tuple = [("Tacos", 3), ("Enchiladas", 70),
 #                       ("Carrots", 20), ("Cinammon sticks", 5)]
-# print(sorted(GroceryItems_tuple, key=lambda GroceryItem: GroceryItem[0]))
+# # lambda = specifying sort based on number
+# print(sorted(GroceryItems_tuple, key=lambda GroceryItem: GroceryItem[1]))
 
 
 # -----
@@ -656,7 +682,7 @@
 # Constructor = sets initial values for an object. Uses magic method called "__init__"
 # -----
 
-# First = define the class. Uses constructor magic method
+# # First = define the class. Uses constructor magic method
 # class PoundsInches:
 #     def __init__(self, weight, height):
 #         self.weight = weight
@@ -716,6 +742,7 @@
 #     def __eq__(self, other):
 #         return self.calories == other.calories and self.spicyness == other.spicyness
 
+
 # ChickenTaco = CalSpice(400, 3)
 # BeefBurrito = CalSpice(600, 7)
 # print(ChickenTaco == BeefBurrito)
@@ -732,7 +759,7 @@
 # BeefBurrito = CalSpice(600, 7)
 # print(BeefBurrito > ChickenTaco)
 
-# # If you don't include __eq__ magic method, return = false (since "CalSpice" object = stored in different addresses by default)
+# If you don't include __eq__ magic method, return = false (since "CalSpice" object = stored in different addresses by default)
 
 # -----
 # Arithmetic between objects (e.g. adding, subtracting)
